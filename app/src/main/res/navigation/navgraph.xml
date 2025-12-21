@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/allPartiesUnderTheSameCategory"
+        android:name="com.example.djpanda.AllPartiesUnderTheSameCategory"
+        android:label="AllPartiesUnderTheSameCategory"
+        tools:layout="@layout/fragment_all_parties_under_the_same_category" />
+    <fragment
+        android:id="@+id/buyingTicketsFragment"
+        android:name="com.example.djpanda.BuyingTickets"
+        android:label="BuyingTicketsFragment"
+        tools:layout="@layout/fragment_buying_tickets"/>
+    <fragment
+        android:id="@+id/djsProfile"
+        android:name="com.example.djpanda.DjsProfile"
+        android:label="DjsProfile"
+        tools:layout="@layout/fragment_djs_profile"/>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.djpanda.HomeScreen"
+        android:label="HomeScreen"
+        tools:layout="@layout/fragment_home_screen">
+        <action
+            android:id="@+id/action_homeScreen_to_partyProfile"
+            app:destination="@id/partyProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyProfile"
+        android:name="com.example.djpanda.PartyProfile"
+        android:label="PartyProfile"
+        tools:layout="@layout/fragment_party_profile">
+        <action
+            android:id="@+id/action_partyProfile_to_djsProfile"
+            app:destination="@id/djsProfile" />
+        <action
+            android:id="@+id/action_partyProfile_to_buyingTicketsFragment"
+            app:destination="@id/buyingTicketsFragment" />
+    </fragment>
+</navigation>
