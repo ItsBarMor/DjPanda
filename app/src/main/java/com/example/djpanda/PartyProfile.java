@@ -1,78 +1,43 @@
 package com.example.djpanda;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PartyProfile#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 public class PartyProfile extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public PartyProfile() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PartyProfile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PartyProfile newInstance(String param1, String param2) {
-        PartyProfile fragment = new PartyProfile();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_party_profile, container, false);
 
-        Button button_to_djs_profile= view.findViewById(R.id.button_to_djs_profile);
-        button_to_djs_profile.setOnClickListener(new View.OnClickListener() {
+        int partyId = 0;
+        Bundle args = getArguments();
+        if (args != null) {
+            partyId = args.getInt("partyId", 0);
+        }
+
+        Button buttonToDjsProfile = view.findViewById(R.id.button_to_djs_profile);
+        buttonToDjsProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile);
             }
         });
 
-        Button button_to_buying_tickets= view.findViewById(R.id.button_to_buying_tickets);
-        button_to_buying_tickets.setOnClickListener(new View.OnClickListener() {
+        Button buttonToBuyingTickets = view.findViewById(R.id.button_to_buying_tickets);
+        buttonToBuyingTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_buyingTicketsFragment);
