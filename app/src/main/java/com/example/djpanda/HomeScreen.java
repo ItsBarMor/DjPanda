@@ -67,8 +67,11 @@ public class HomeScreen extends Fragment {
         buttoun_to_party_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_homeScreen_to_partyProfile);
-
+                // IMPORTANT!!!! TO ADD: Navigation.findNavController(view).navigate(R.id.action_homeScreen_to_partyProfile);
+                //for test only (the next 3 lines)- remove later and keep the line above, this is just to show a speficic party
+                Bundle bundle = new Bundle();
+                bundle.putInt("partyId", 1);
+                Navigation.findNavController(view).navigate(R.id.action_homeScreen_to_partyProfile, bundle);
             }
         });
 

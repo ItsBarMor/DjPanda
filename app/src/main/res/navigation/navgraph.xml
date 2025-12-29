@@ -17,16 +17,24 @@
             android:id="@+id/action_allPartiesUnderTheSameCategory_to_djsProfile"
             app:destination="@id/djsProfile" />
     </fragment>
+
     <fragment
         android:id="@+id/buyingTicketsFragment"
         android:name="com.example.djpanda.BuyingTickets"
         android:label="BuyingTicketsFragment"
         tools:layout="@layout/fragment_buying_tickets"/>
+
     <fragment
         android:id="@+id/djsProfile"
         android:name="com.example.djpanda.DjsProfile"
         android:label="DjsProfile"
-        tools:layout="@layout/fragment_djs_profile"/>
+        tools:layout="@layout/fragment_djs_profile">
+        <argument
+            android:name="djId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
     <fragment
         android:id="@+id/homeScreen"
         android:name="com.example.djpanda.HomeScreen"
@@ -42,6 +50,7 @@
             android:id="@+id/action_homeScreen_to_allPartiesUnderTheSameCategory"
             app:destination="@id/allPartiesUnderTheSameCategory" />
     </fragment>
+
     <fragment
         android:id="@+id/partyProfile"
         android:name="com.example.djpanda.PartyProfile"
@@ -55,8 +64,10 @@
             app:destination="@id/buyingTicketsFragment" />
         <argument
             android:name="partyId"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="0"/>
     </fragment>
+
     <fragment
         android:id="@+id/signIn"
         android:name="com.example.djpanda.SignIn"
@@ -69,6 +80,7 @@
             android:id="@+id/action_signIn_to_homeScreen"
             app:destination="@id/homeScreen" />
     </fragment>
+
     <fragment
         android:id="@+id/signUp"
         android:name="com.example.djpanda.SignUp"
@@ -78,4 +90,5 @@
             android:id="@+id/action_signUp_to_signIn"
             app:destination="@id/signIn" />
     </fragment>
+
 </navigation>
