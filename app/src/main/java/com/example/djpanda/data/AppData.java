@@ -1,10 +1,14 @@
 package com.example.djpanda.data;
 import com.example.djpanda.R;
 import com.example.djpanda.models.Party;
+import com.example.djpanda.models.Dj;
 import java.util.ArrayList;
 public class AppData {
     public static final ArrayList<Party> parties = new ArrayList<>();
     // 1- Trance, 2- Techno, 3- HipHop, 4- Pop, 5- Latin
+    public static final ArrayList<Dj> djs = new ArrayList<>();
+    //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Roni Superstar, 5- Dj Shakira
+
     static {
         //Trance
         parties.add(new Party(
@@ -17,14 +21,17 @@ public class AppData {
                 "Haoman 17",
                 "Tel Aviv",
                 "Dj Panda",
-                "Trance • Progressive",
-                140.0,
+                1,
+                "Trance",
                 120.0,
                 110.0,
+                100.0,
                 90.0,
                 "10/01/2026",
                 18,
                 "Trance night with 2 dance floors, strong lineup, and an insane vibe all night long!"
+
+
         ));
 
         //Techno
@@ -38,7 +45,8 @@ public class AppData {
                 "Terminal X",
                 "Tel Aviv",
                 "Dj Timmy",
-                "Techno • Hard Techno",
+                2,
+                "Techno",
                 160.0,
                 140.0,
                 120.0,
@@ -59,7 +67,8 @@ public class AppData {
                 "Club Pulse",
                 "Rishon LeZion",
                 "Dj Hippo",
-                "HipHop • R&B",
+                3,
+                "HipHop",
                 120.0,
                 100.0,
                 90.0,
@@ -80,7 +89,8 @@ public class AppData {
                 "Sky Bar",
                 "Tel Aviv",
                 "Dj Roni Superstar",
-                "Pop • Dance • Hits",
+                4,
+                "Pop",
                 130.0,
                 110.0,
                 95.0,
@@ -101,7 +111,8 @@ public class AppData {
                 "La Casa",
                 "Holon",
                 "Dj Shakira",
-                "Reggaeton • Latin",
+                5,
+                "Latin",
                 125.0,
                 105.0,
                 85.0,
@@ -110,6 +121,62 @@ public class AppData {
                 18,
                 "Latin & reggaeton party with dance warmup early in the night and nonstop rhythm later on"
         ));
+
+        djs.add(new Dj(
+                1,
+                "Dj Panda",
+                R.drawable.ic_launcher_background,
+                "Trance • Progressive",
+                "Tel Aviv • Ramat Gan",
+                "High energy trance sets with clean builds and big drops",
+                4.6,
+                128
+        ));
+
+        djs.add(new Dj(
+                2,
+                "Dj Timmy",
+                R.drawable.ic_launcher_background,
+                "Techno • Hard Techno",
+                "Tel Aviv • Herzliya",
+                "Warehouse vibes, heavy bass, and long driving grooves",
+                4.4,
+                92
+        ));
+
+        djs.add(new Dj(
+                3,
+                "Dj Hippo",
+                R.drawable.ic_launcher_background,
+                "HipHop • R&B",
+                "Rishon LeZion • Bat Yam",
+                "Smooth R&B into hype hip-hop, great crowd control",
+                4.2,
+                56
+        ));
+
+        djs.add(new Dj(
+                4,
+                "Dj Roni Superstar",
+                R.drawable.ic_launcher_background,
+                "Pop • Dance • Hits",
+                "Center District",
+                "Mainstream party anthems and sing-along moments all night",
+                4.7,
+                210
+        ));
+
+        djs.add(new Dj(
+                5,
+                "Dj Shakira",
+                R.drawable.ic_launcher_background,
+                "Reggaeton • Latin",
+                "Holon • Tel Aviv",
+                "Latin rhythm, reggaeton heat, and a fun warmup set early",
+                4.5,
+                143
+        ));
+
     }
 
     public static Party getPartyById(int id) {
@@ -120,4 +187,13 @@ public class AppData {
         }
         return null;
     }
+    public static Dj getDjById(int id) {
+        for (Dj d : djs) {
+            if (d.id == id) {
+                return d;
+            }
+        }
+        return null;
+    }
+
 }

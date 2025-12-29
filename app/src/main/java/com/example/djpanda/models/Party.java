@@ -10,6 +10,8 @@ public class Party {
     public final String locationName;
     public final String city;
     public final String djName;
+    public final int djId;
+
     public final String genres;
 
     public final double priceMen;
@@ -32,6 +34,7 @@ public class Party {
             String locationName,
             String city,
             String djName,
+            int djId,
             String genres,
             double priceMen,
             double priceWomen,
@@ -50,6 +53,7 @@ public class Party {
         this.locationName = locationName;
         this.city = city;
         this.djName = djName;
+        this.djId = djId;
         this.genres = genres;
         this.priceMen = priceMen;
         this.priceWomen = priceWomen;
