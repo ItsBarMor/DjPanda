@@ -27,7 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="34sp"
+            android:textSize="40sp"
+            app:fontFamily="@font/poppins_bold"
             tools:text="Dj Panda" />
 
         <TextView
@@ -35,15 +36,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
-            tools:text="Trance" />
+            android:textSize="30sp"
+            tools:text="Trance"
+            app:fontFamily="@font/poppins_semibold"/>
 
         <TextView
             android:id="@+id/dj_locations_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textSize="16sp"
+            app:fontFamily="@font/poppins_semibold"
+            android:textSize="25sp"
             tools:text="Tel Aviv | Ramat Gan" />
 
         <TextView
@@ -51,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
+            android:textSize="20sp"
             tools:text=" ⭐4.6 | 128 reviews" />
 
         <TextView
@@ -68,7 +71,8 @@
             app:autoSizeMaxTextSize="16sp"
             app:autoSizeMinTextSize="8sp"
             app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform" />
+            app:autoSizeTextType="uniform"
+            tools:ignore="RtlCompat" />
     </LinearLayout>
 
 </ScrollView>
