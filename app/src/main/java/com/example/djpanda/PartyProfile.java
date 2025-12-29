@@ -1,81 +1,98 @@
 package com.example.djpanda;
-
+import com.example.djpanda.data.AppData;
+import com.example.djpanda.models.Party;
+import android.widget.TextView;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PartyProfile#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 public class PartyProfile extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public PartyProfile() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PartyProfile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PartyProfile newInstance(String param1, String param2) {
-        PartyProfile fragment = new PartyProfile();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_party_profile, container, false);
 
-        Button button_to_djs_profile= view.findViewById(R.id.button_to_djs_profile);
-        button_to_djs_profile.setOnClickListener(new View.OnClickListener() {
+        int partyId = 0;
+        Bundle args = getArguments();
+        if (args != null) {
+            partyId = args.getInt("partyId", 0);
+        }
+        Party party = AppData.getPartyById(partyId);
+
+        TextView partyNameText = view.findViewById(R.id.partyNameText);
+
+        ImageView partyImage = view.findViewById(R.id.partyImage);
+
+        TextView partyDateTimeText = view.findViewById(R.id.partyDateTimeText);
+        TextView partyLocationText = view.findViewById(R.id.partyLocationText);
+        TextView partyGenresText = view.findViewById(R.id.partyGenresText);
+        TextView partyPricesText = view.findViewById(R.id.partyPricesText);
+        TextView partyDescriptionText = view.findViewById(R.id.partyDescriptionText);
+
+        Button buttonToDjsProfile = view.findViewById(R.id.button_to_djs_profile);
+        Button buttonToBuyingTickets = view.findViewById(R.id.button_to_buying_tickets);
+
+        if (party == null) {
+            partyNameText.setText("Party not found");
+            partyDateTimeText.setText("");
+            partyLocationText.setText("");
+            partyGenresText.setText("");
+            partyPricesText.setText("");
+            partyDescriptionText.setText("");
+            partyImage.setImageResource(R.drawable.ic_launcher_background);
+
+            //The buttons will turned grey and unclickable if the party is not found
+            buttonToDjsProfile.setEnabled(false);
+            buttonToBuyingTickets.setEnabled(false);
+
+            return view;
+        }
+
+        partyNameText.setText(party.name);
+        partyImage.setImageResource(party.imageResId);
+
+        partyDateTimeText.setText(party.date + " | " + party.time);
+        partyLocationText.setText(party.locationName + " | " + party.city);
+        partyGenresText.setText(party.genres);
+
+        String pricesText = "Prices:\nMen: " + party.priceMen + " | Women: " + party.priceWomen +
+                "\nEarly (until " + party.earlySaleValidUntilDate + "): Men: " + party.earlyPriceMen +
+                " | Women: " + party.earlyPriceWomen + "\nAge limit: " + party.ageLimit;
+
+
+        partyPricesText.setText(pricesText);
+        partyDescriptionText.setText(party.description);
+
+
+        buttonToDjsProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("djId", party.djId);
+                    Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
+
             }
         });
 
-        Button button_to_buying_tickets= view.findViewById(R.id.button_to_buying_tickets);
-        button_to_buying_tickets.setOnClickListener(new View.OnClickListener() {
+        buttonToBuyingTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_buyingTicketsFragment);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("partyId", party.id);
+                    Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_buyingTicketsFragment,bundle);
             }
         });
 

@@ -4,9 +4,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.djpanda.data.AppData;
+import com.example.djpanda.models.Dj;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +63,42 @@ public class DjsProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_djs_profile, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_djs_profile, container, false);
+
+        int djId = 0;
+        Bundle args = getArguments();
+        if (args != null) {
+            djId = args.getInt("djId", 0);
+        }
+        Log.d("DjsProfile", "djId=" + djId);
+        Dj dj = AppData.getDjById(djId);
+
+        ImageView djImage = view.findViewById(R.id.djImage);
+        TextView djNameText = view.findViewById(R.id.dj_profile_name);
+        TextView djGenresText = view.findViewById(R.id.dj_genres_text);
+        TextView djLocationsText = view.findViewById(R.id.dj_locations_text);
+        TextView djRatingText = view.findViewById(R.id.dj_rating_text);
+        TextView djInfoText = view.findViewById(R.id.djs_info);
+
+        if (dj == null) {
+            djNameText.setText("DJ not found");
+            djGenresText.setText("");
+            djLocationsText.setText("");
+            djRatingText.setText("");
+            djInfoText.setText("");
+            djImage.setImageResource(R.drawable.ic_launcher_background);
+            return view;
+        }
+
+        djImage.setImageResource(dj.imageResId);
+        djNameText.setText(dj.name);
+        djGenresText.setText(dj.genres);
+        djLocationsText.setText(dj.locations);
+        djRatingText.setText(dj.rating + " ⭐ "  + " | " + dj.reviewsCount + " reviews");
+        djInfoText.setText(dj.bio);
+
+        return view;
+        //return inflater.inflate(R.layout.fragment_djs_profile, container, false);
     }
 }

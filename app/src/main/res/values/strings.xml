@@ -2,4 +2,9 @@
     <string name="app_name">Dj Panda</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="party_image">Party image</string>
+    <string name="dj_image">DJ image</string>
+
+
 </resources>
