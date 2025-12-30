@@ -38,7 +38,6 @@ public class PartyProfile extends Fragment {
 
         TextView partyDateTimeText = view.findViewById(R.id.partyDateTimeText);
         TextView partyLocationText = view.findViewById(R.id.partyLocationText);
-        TextView partyGenresText = view.findViewById(R.id.partyGenresText);
         TextView partyPricesText = view.findViewById(R.id.partyPricesText);
         TextView partyDescriptionText = view.findViewById(R.id.partyDescriptionText);
 
@@ -49,7 +48,6 @@ public class PartyProfile extends Fragment {
             partyNameText.setText("Party not found");
             partyDateTimeText.setText("");
             partyLocationText.setText("");
-            partyGenresText.setText("");
             partyPricesText.setText("");
             partyDescriptionText.setText("");
             partyImage.setImageResource(R.drawable.ic_launcher_background);
@@ -64,16 +62,8 @@ public class PartyProfile extends Fragment {
         partyNameText.setText(party.name);
         partyImage.setImageResource(party.imageResId);
 
-        partyDateTimeText.setText(party.date + " | " + party.time);
-        partyLocationText.setText(party.locationName + " | " + party.city);
-        partyGenresText.setText(party.genres);
-
-        String pricesText = "Prices:\nMen: " + party.priceMen + " | Women: " + party.priceWomen +
-                "\nEarly (until " + party.earlySaleValidUntilDate + "): Men: " + party.earlyPriceMen +
-                " | Women: " + party.earlyPriceWomen + "\nAge limit: " + party.ageLimit;
-
-
-        partyPricesText.setText(pricesText);
+        partyDateTimeText.setText(party.date + " | " + party.time );
+        partyLocationText.setText(party.locationName + ", " + party.city + " | " + party.genres);
         partyDescriptionText.setText(party.description);
 
 
@@ -83,7 +73,6 @@ public class PartyProfile extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putInt("djId", party.djId);
                     Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
-
             }
         });
 

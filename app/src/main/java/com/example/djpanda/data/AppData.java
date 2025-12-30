@@ -28,8 +28,9 @@ public class AppData {
                 90.0,
                 "10/01/2026",
                 18,
-                "Trance night with 2 dance floors, strong lineup, and an insane vibe all night long!"
-
+                "Trance Night TLV is back at Haoman 17 with the one and only: \nDj Panda!!!\n"
+                +"Two dance floors, uplifting & progressive trance all night, and a crowd that comes for pure energy.\n" +
+                        "Expect big builds, clean drops, and a nonstop vibe until sunrise!"
 
         ));
 
@@ -51,7 +52,8 @@ public class AppData {
                 105.0,
                 "15/01/2026",
                 21,
-                "Industrial warehouse techno party with heavy bass, dark atmosphere, and non-stop energy :)"
+                "Step into Terminal X for a true warehouse techno experience:\n raw industrial vibes, deep shadows, pounding kicks, and a sound system built for pressure!\n" +
+                        "From driving techno to harder peak-time moments, this one goes all the way!"
         ));
 
         //HipHop
@@ -72,7 +74,8 @@ public class AppData {
                 75.0,
                 "20/01/2026",
                 18,
-                "Hip-hop and R&B night with a smooth vibe, dance battles, and the best throwback hits"
+                "Urban Friday at Club Pulse brings the perfect mix of hip-hop and R&B!\nSmooth warmup vibes, sing-along hooks, and a packed dance floor all night :)\n"+
+                        "Expect throwbacks, current bangers, and a crowd that knows the words!\nSee you soon!"
         ));
 
         //Pop
@@ -93,7 +96,9 @@ public class AppData {
                 80.0,
                 "28/01/2026",
                 18,
-                "Big mainstream party with the latest hits, confetti drops, and a high-production show vibe"
+                "Mainstream Saturday at Sky Bar is all about big hits and bigger energy!\n"+
+                        "The latest chart-toppers, dance anthems, and a high-production party vibe.\n" +
+                        "Expect confetti moments, hands-in-the-air drops, and a packed floor from start to finish!"
         ));
 
         //Latin
@@ -114,7 +119,8 @@ public class AppData {
                 70.0,
                 "05/02/2026",
                 18,
-                "Latin & reggaeton party with dance warmup early in the night and nonstop rhythm later on"
+                "Latin Hit at La Casa brings the heat with Dj Shakira!!!\n" + "Reggaeton, Latin hits, and nonstop rhythm all night.\n"+
+                        "Start with a fun warm-up early on, then ride the energy as the dance floor turns into a full Latin fiesta!"
         ));
 
         djs.add(new Dj(

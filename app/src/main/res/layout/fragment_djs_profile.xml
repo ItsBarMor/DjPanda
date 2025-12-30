@@ -72,7 +72,8 @@
             app:autoSizeMinTextSize="8sp"
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
-            tools:ignore="RtlCompat" />
+            tools:ignore="RtlCompat"
+            />
     </LinearLayout>
 
 </ScrollView>
