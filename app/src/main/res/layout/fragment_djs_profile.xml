@@ -15,6 +15,25 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
+        <TextView
+            android:id="@+id/dj_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            app:fontFamily="@font/poppins_bold"
+            android:layout_marginBottom="-10dp"
+            tools:text="Dj Panda"
+            />
+
+        <TextView
+            android:id="@+id/dj_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            tools:text=" ⭐4.6 | 128 reviews" />
+
         <ImageView
             android:id="@+id/djImage"
             android:layout_width="match_parent"
@@ -22,40 +41,58 @@
             android:scaleType="centerCrop"
             android:contentDescription="@string/dj_image" />
 
-        <TextView
-            android:id="@+id/dj_profile_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="40sp"
-            app:fontFamily="@font/poppins_bold"
-            tools:text="Dj Panda" />
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/dj_genres_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="30sp"
-            tools:text="Trance"
-            app:fontFamily="@font/poppins_semibold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_marginBottom="8dp">
 
-        <TextView
-            android:id="@+id/dj_locations_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:fontFamily="@font/poppins_semibold"
-            android:textSize="25sp"
-            tools:text="Tel Aviv | Ramat Gan" />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_headphones_24"
+                    app:tint="#000000" />
 
-        <TextView
-            android:id="@+id/dj_rating_text"
+                <TextView
+                    android:id="@+id/dj_genres_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    tools:text="Trance"
+                    app:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            tools:text=" ⭐4.6 | 128 reviews" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/icon_location_24"
+                app:tint="#000000" />
+
+            <TextView
+                android:id="@+id/dj_locations_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"
+                tools:text="Tel Aviv | Ramat Gan"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/djs_info"
@@ -68,12 +105,14 @@
             tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
             android:textAlignment="textStart"
             android:layout_gravity="fill_horizontal"
-            app:autoSizeMaxTextSize="16sp"
-            app:autoSizeMinTextSize="8sp"
+            android:textSize="18sp"
+            app:autoSizeMaxTextSize="24sp"
+            app:autoSizeMinTextSize="14sp"
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
             tools:ignore="RtlCompat"
             />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
