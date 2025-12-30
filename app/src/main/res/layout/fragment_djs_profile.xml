@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:background="#c492b1">
 
         <TextView
             android:id="@+id/dj_profile_name"
@@ -111,6 +112,8 @@
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
             tools:ignore="RtlCompat"
+            android:lineSpacingExtra="4dp"
+            app:fontFamily="@font/inter_medium"
             />
         </LinearLayout>
     </LinearLayout>
