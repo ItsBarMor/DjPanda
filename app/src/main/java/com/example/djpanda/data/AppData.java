@@ -7,7 +7,7 @@ public class AppData {
     public static final ArrayList<Party> parties = new ArrayList<>();
     // 1- Trance, 2- Techno, 3- HipHop, 4- Pop, 5- Latin
     public static final ArrayList<Dj> djs = new ArrayList<>();
-    //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Roni Superstar, 5- Dj Shakira
+    //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Superstar, 5- Dj Shakira
 
     static {
         //Trance
@@ -28,8 +28,9 @@ public class AppData {
                 90.0,
                 "10/01/2026",
                 18,
-                "Trance night with 2 dance floors, strong lineup, and an insane vibe all night long!"
-
+                "Trance Night TLV is back at Haoman 17 with the one and only: \nDj Panda!!!\n"
+                +"Two dance floors, uplifting & progressive trance all night, and a crowd that comes for pure energy.\n" +
+                        "Expect big builds, clean drops, and a nonstop vibe until sunrise!"
 
         ));
 
@@ -51,7 +52,8 @@ public class AppData {
                 105.0,
                 "15/01/2026",
                 21,
-                "Industrial warehouse techno party with heavy bass, dark atmosphere, and non-stop energy :)"
+                "Step into Terminal X for a true warehouse techno experience:\n raw industrial vibes, deep shadows, pounding kicks, and a sound system built for pressure!\n" +
+                        "From driving techno to harder peak-time moments, this one goes all the way!"
         ));
 
         //HipHop
@@ -72,7 +74,8 @@ public class AppData {
                 75.0,
                 "20/01/2026",
                 18,
-                "Hip-hop and R&B night with a smooth vibe, dance battles, and the best throwback hits"
+                "Urban Friday at Club Pulse brings the perfect mix of hip-hop and R&B!\nSmooth warmup vibes, sing-along hooks, and a packed dance floor all night :)\n"+
+                        "Expect throwbacks, current bangers, and a crowd that knows the words!\nSee you soon!"
         ));
 
         //Pop
@@ -93,7 +96,9 @@ public class AppData {
                 80.0,
                 "28/01/2026",
                 18,
-                "Big mainstream party with the latest hits, confetti drops, and a high-production show vibe"
+                "Mainstream Saturday at Sky Bar is all about big hits and bigger energy!\n"+
+                        "The latest chart-toppers, dance anthems, and a high-production party vibe.\n" +
+                        "Expect confetti moments, hands-in-the-air drops, and a packed floor from start to finish!"
         ));
 
         //Latin
@@ -114,7 +119,8 @@ public class AppData {
                 70.0,
                 "05/02/2026",
                 18,
-                "Latin & reggaeton party with dance warmup early in the night and nonstop rhythm later on"
+                "Latin Hit at La Casa brings the heat with Dj Shakira!!!\n" + "Reggaeton, Latin hits, and nonstop rhythm all night.\n"+
+                        "Start with a fun warm-up early on, then ride the energy as the dance floor turns into a full Latin fiesta!"
         ));
 
         djs.add(new Dj(
@@ -123,7 +129,8 @@ public class AppData {
                 R.drawable.dj_panda,
                 "Trance",
                 "Tel Aviv | Ramat Gan",
-                "High energy trance sets with clean builds and big drops",
+                "Fueling the dance floor with pure adrenaline!\nKnown for high-energy trance sets,\nDj Panda masters the art of the Trance.\n"+
+                        "If you’re looking for a nonstop journey through uplifting melodies and heart-pounding beats, you’re in the right place.",
                 4.6,
                 128
         ));
@@ -134,7 +141,8 @@ public class AppData {
                 R.drawable.dj_timmy,
                 "Techno",
                 "Tel Aviv | Herzliya",
-                "Warehouse vibes, heavy bass, and long driving grooves",
+                "The king of the underground!\nDj Timmy brings the raw energy of warehouse techno straight to the booth.\n" +
+                        "Expect deep, driving grooves, heavy basslines, and a dark, industrial atmosphere that keeps the crowd moving in a trance-like state until the early morning hours.",
                 4.4,
                 92
         ));
@@ -145,18 +153,19 @@ public class AppData {
                 R.drawable.dj_hippo,
                 "HipHop",
                 "Rishon LeZion | Bat Yam",
-                "Smooth R&B into hype hip-hop, great crowd control",
+                "Where smooth meets hype.\nDj Hippo is a master of crowd control, seamlessly blending old-school R&B soul with the freshest hip-hop bangers.\n"+
+                        "From the soulful warmup to the peak-time energy, he knows exactly how to keep the vibe electric and the hands in the air.",
                 4.2,
                 56
         ));
 
         djs.add(new Dj(
                 4,
-                "Dj Roni Superstar",
-                R.drawable.dj_roni_superstar,
+                "Dj Superstar",
+                R.drawable.dj_superstar,
                 "Pop",
                 "Holon",
-                "Mainstream party anthems and sing-along moments all night",
+                "Your soundtrack to the perfect night out!\nDj Superstar specializes in pure energy and sing-along anthems."+"\nMixing the biggest global chart-toppers with high-octane dance remixes, she ensures that every moment on the floor is a 'hands-in-the-air' confetti moment.",
                 4.7,
                 210
         ));
@@ -167,7 +176,8 @@ public class AppData {
                 R.drawable.dj_shakira,
                 "Latin",
                 "Holon | Tel Aviv",
-                "Latin rhythm, reggaeton heat, and a fun warmup set early",
+                "Bringing the heat of the tropics to the city!\n"+"Dj Shakira is all about rhythm, passion, and reggaeton fire." +
+                        "\nHer sets are a vibrant fiesta, starting with sun-drenched warmups and building into a high-intensity Latin explosion that makes it impossible to stay seated.",
                 4.5,
                 143
         ));
