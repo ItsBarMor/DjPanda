@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:text="Party Name"
-            android:textSize="24sp"
+            android:textSize="34sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -34,14 +34,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp" />
+            android:textSize="25sp"
+
+            />
 
         <TextView
             android:id="@+id/partyLocationText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textSize="16sp" />
+            android:textSize="25sp"
+            />
 
         <TextView
             android:id="@+id/partyGenresText"
@@ -55,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            />
 
         <TextView
             android:id="@+id/partyDescriptionText"

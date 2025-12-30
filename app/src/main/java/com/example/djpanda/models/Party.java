@@ -9,7 +9,7 @@ public class Party {
     public final String time;
     public final String locationName;
     public final String city;
-    public final String djName;
+
     public final int djId;
 
     public final String genres;
@@ -33,7 +33,6 @@ public class Party {
             String time,
             String locationName,
             String city,
-            String djName,
             int djId,
             String genres,
             double priceMen,
@@ -52,7 +51,6 @@ public class Party {
         this.time = time;
         this.locationName = locationName;
         this.city = city;
-        this.djName = djName;
         this.djId = djId;
         this.genres = genres;
         this.priceMen = priceMen;
