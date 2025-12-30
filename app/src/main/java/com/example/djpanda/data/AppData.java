@@ -7,7 +7,7 @@ public class AppData {
     public static final ArrayList<Party> parties = new ArrayList<>();
     // 1- Trance, 2- Techno, 3- HipHop, 4- Pop, 5- Latin
     public static final ArrayList<Dj> djs = new ArrayList<>();
-    //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Roni Superstar, 5- Dj Shakira
+    //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Superstar, 5- Dj Shakira
 
     static {
         //Trance
@@ -158,8 +158,8 @@ public class AppData {
 
         djs.add(new Dj(
                 4,
-                "Dj Roni Superstar",
-                R.drawable.dj_roni_superstar,
+                "Dj Superstar",
+                R.drawable.dj_superstar,
                 "Pop",
                 "Holon",
                 "Mainstream party anthems and sing-along moments all night",
