@@ -1,14 +1,15 @@
 package com.example.djpanda;
 import com.example.djpanda.data.AppData;
 import com.example.djpanda.models.Party;
+import com.example.djpanda.models.Dj;
 import android.widget.TextView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.graphics.Paint;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -36,12 +37,12 @@ public class PartyProfile extends Fragment {
 
         ImageView partyImage = view.findViewById(R.id.partyImage);
 
+        TextView djProfileName = view.findViewById(R.id.dj_profile_name);
         TextView partyDateTimeText = view.findViewById(R.id.partyDateTimeText);
         TextView partyLocationText = view.findViewById(R.id.partyLocationText);
         TextView partyPricesText = view.findViewById(R.id.partyPricesText);
         TextView partyDescriptionText = view.findViewById(R.id.partyDescriptionText);
 
-        Button buttonToDjsProfile = view.findViewById(R.id.button_to_djs_profile);
         Button buttonToBuyingTickets = view.findViewById(R.id.button_to_buying_tickets);
 
         if (party == null) {
@@ -52,8 +53,7 @@ public class PartyProfile extends Fragment {
             partyDescriptionText.setText("");
             partyImage.setImageResource(R.drawable.ic_launcher_background);
 
-            //The buttons will turned grey and unclickable if the party is not found
-            buttonToDjsProfile.setEnabled(false);
+            //The button will turned grey and unclickable if the party is not found
             buttonToBuyingTickets.setEnabled(false);
 
             return view;
@@ -62,19 +62,31 @@ public class PartyProfile extends Fragment {
         partyNameText.setText(party.name);
         partyImage.setImageResource(party.imageResId);
 
-        partyDateTimeText.setText(party.date + " | " + party.time );
+        partyDateTimeText.setText(party.date + " | " + party.time + " | ");
+        Dj dj = AppData.getDjById(party.djId);
+
+        if (dj != null) {
+            djProfileName.setText(dj.name);
+        }
+        else {
+            djProfileName.setText("DJ not found");
+
+        }
+
+        djProfileName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("djId", party.djId);
+                Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
+            }
+        });
+
+        djProfileName.setPaintFlags(djProfileName.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
         partyLocationText.setText(party.locationName + ", " + party.city + " | " + party.genres);
         partyDescriptionText.setText(party.description);
 
-
-        buttonToDjsProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("djId", party.djId);
-                    Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
-            }
-        });
 
         buttonToBuyingTickets.setOnClickListener(new View.OnClickListener() {
             @Override

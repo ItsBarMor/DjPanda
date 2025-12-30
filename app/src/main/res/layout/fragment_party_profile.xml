@@ -31,23 +31,40 @@
             android:layout_marginTop="12dp"
             android:contentDescription="@string/party_image" />
 
-        <TextView
-            android:id="@+id/partyDateTimeText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:fontFamily="@font/poppins_semibold"
-            android:textSize="25sp"
-            android:gravity="center" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
 
-        <TextView
-            android:id="@+id/partyLocationText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="22sp"
-            app:fontFamily="@font/poppins_medium"
-            android:gravity="center" />
+            <TextView
+                android:id="@+id/partyDateTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/dj_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Dj Panda"
+                android:textSize="25sp"
+                app:fontFamily="@font/poppins_bold"
+                android:textColor="#9C27B0"
+                android:layout_marginStart="4dp"/></LinearLayout>
+
+            <TextView
+                android:id="@+id/partyLocationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="22sp"
+                app:fontFamily="@font/poppins_medium"
+                android:gravity="center" />
 
         <TextView
             android:id="@+id/partyDescriptionText"
