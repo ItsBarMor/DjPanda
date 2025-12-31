@@ -9,6 +9,7 @@ public class Dj {
     public final String bio;
     public final double rating; // the ratings are between 0.0 to 5.0
     public final int reviewsCount;
+    public final Review review;
 
     public Dj(
             int id,
@@ -18,7 +19,9 @@ public class Dj {
             String locations,
             String bio,
             double rating,
-            int reviewsCount
+            int reviewsCount,
+            Review review
+
     ) {
         this.id = id;
         this.name = name;
@@ -28,5 +31,6 @@ public class Dj {
         this.bio = bio;
         this.rating = rating;
         this.reviewsCount = reviewsCount;
+        this.review=review;
     }
 }
