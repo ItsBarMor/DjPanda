@@ -116,6 +116,50 @@
             app:fontFamily="@font/inter_medium"
             />
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/review_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:padding="16dp"
+            android:background="#CCFFFFFF"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/reviewer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                app:fontFamily="@font/inter_medium"
+                tools:text="Avi Ron" />
+
+            <TextView
+                android:id="@+id/review_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#FFD700"
+                android:layout_marginTop="4dp"
+                tools:text="⭐ 5.0" />
+
+            <TextView
+                android:id="@+id/review_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textColor="#333333"
+                app:fontFamily="@font/inter_medium"
+                tools:text="Best DJ ever!" />
+            </LinearLayout>
+
+        </LinearLayout>
 
 </ScrollView>

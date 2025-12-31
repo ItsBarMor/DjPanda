@@ -3,6 +3,8 @@ import com.example.djpanda.R;
 import com.example.djpanda.models.Party;
 import com.example.djpanda.models.Dj;
 import java.util.ArrayList;
+import com.example.djpanda.models.Review;
+
 public class AppData {
     public static final ArrayList<Party> parties = new ArrayList<>();
     // 1- Trance, 2- Techno, 3- HipHop, 4- Pop, 5- Latin
@@ -132,7 +134,8 @@ public class AppData {
                 "Fueling the dance floor with pure adrenaline!\nKnown for high-energy trance sets,\nDj Panda masters the art of the Trance.\n"+
                         "If you’re looking for a nonstop journey through uplifting melodies and heart-pounding beats, you’re in the right place.",
                 4.6,
-                128
+                128,
+                new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f)
         ));
 
         djs.add(new Dj(
@@ -144,7 +147,8 @@ public class AppData {
                 "The king of the underground!\nDj Timmy brings the raw energy of warehouse techno straight to the booth.\n" +
                         "Expect deep, driving grooves, heavy basslines, and a dark, industrial atmosphere that keeps the crowd moving in a trance-like state until the early morning hours.",
                 4.4,
-                92
+                92,
+                new Review("Eli Kopter.", "Proper underground techno vibes. The bass was hitting hard!", 4.5f)
         ));
 
         djs.add(new Dj(
@@ -156,7 +160,8 @@ public class AppData {
                 "Where smooth meets hype.\nDj Hippo is a master of crowd control, seamlessly blending old-school R&B soul with the freshest hip-hop bangers.\n"+
                         "From the soulful warmup to the peak-time energy, he knows exactly how to keep the vibe electric and the hands in the air.",
                 4.2,
-                56
+                56,
+                new Review("Amit Nakesh", "Perfect mix of R&B and HipHop. Dj Hippo really knows how to control the crowd.", 4.0f)
         ));
 
         djs.add(new Dj(
@@ -167,7 +172,8 @@ public class AppData {
                 "Holon",
                 "Your soundtrack to the perfect night out!\nDj Superstar specializes in pure energy and sing-along anthems."+"\nMixing the biggest global chart-toppers with high-octane dance remixes, she ensures that every moment on the floor is a 'hands-in-the-air' confetti moment.",
                 4.7,
-                210
+                210,
+                new Review("Eden Shoulders", "The best pop party in town! Sing-along anthems from start to finish.", 5.0f)
         ));
 
         djs.add(new Dj(
@@ -179,7 +185,8 @@ public class AppData {
                 "Bringing the heat of the tropics to the city!\n"+"Dj Shakira is all about rhythm, passion, and reggaeton fire." +
                         "\nHer sets are a vibrant fiesta, starting with sun-drenched warmups and building into a high-intensity Latin explosion that makes it impossible to stay seated.",
                 4.5,
-                143
+                143,
+                new Review("Moni Tor", "Pure fire! The reggaeton rhythms were exactly what we needed :)", 4.5f)
         ));
 
     }

@@ -80,6 +80,10 @@ public class DjsProfile extends Fragment {
         TextView djLocationsText = view.findViewById(R.id.dj_locations_text);
         TextView djRatingText = view.findViewById(R.id.dj_rating_text);
         TextView djInfoText = view.findViewById(R.id.djs_info);
+        //reviewstuff
+        TextView reviewerName = view.findViewById(R.id.reviewer_name);
+        TextView reviewRating = view.findViewById(R.id.review_rating);
+        TextView reviewText = view.findViewById(R.id.review_text);
 
         if (dj == null) {
             djNameText.setText("DJ not found");
@@ -97,6 +101,20 @@ public class DjsProfile extends Fragment {
         djLocationsText.setText(dj.locations);
         djRatingText.setText(dj.rating + " ⭐ "  + " | " + dj.reviewsCount + " reviews");
         djInfoText.setText(dj.bio);
+
+        View reviewContainer = view.findViewById(R.id.review_layout);
+
+        if (dj.review != null)
+        {
+            reviewContainer.setVisibility(View.VISIBLE);
+            reviewerName.setText(dj.review.userName);
+            reviewRating.setText("⭐ " + dj.review.rating);
+            reviewText.setText("\"" + dj.review.comment + "\"");
+        }
+        else
+        {
+            reviewContainer.setVisibility(View.GONE); //hide from screen
+        }
 
         return view;
         //return inflater.inflate(R.layout.fragment_djs_profile, container, false);
