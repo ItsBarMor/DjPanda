@@ -74,13 +74,15 @@
             android:id="@+id/partyDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:textSize="18sp"
             android:gravity="center"
-            android:justificationMode="inter_word"
-            android:layout_marginHorizontal="24dp"
-            android:lineSpacingExtra="4dp"
-            app:fontFamily="@font/inter_medium"/>
+            android:justificationMode="none"
+            android:layout_marginHorizontal="20dp"
+            android:lineSpacingExtra="6dp"
+            app:fontFamily="@font/inter_medium"
+            android:textAlignment="center"
+            />
 
         <TextView
             android:id="@+id/partyPricesText"

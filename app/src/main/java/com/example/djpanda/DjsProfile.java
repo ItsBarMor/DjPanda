@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.djpanda.data.AppData;
 import com.example.djpanda.models.Dj;
@@ -82,7 +83,7 @@ public class DjsProfile extends Fragment {
         TextView djInfoText = view.findViewById(R.id.djs_info);
         //reviewstuff
         TextView reviewerName = view.findViewById(R.id.reviewer_name);
-        TextView reviewRating = view.findViewById(R.id.review_rating);
+        RatingBar reviewRatingBar = view.findViewById(R.id.review_rating_bar);
         TextView reviewText = view.findViewById(R.id.review_text);
 
         if (dj == null) {
@@ -108,7 +109,7 @@ public class DjsProfile extends Fragment {
         {
             reviewContainer.setVisibility(View.VISIBLE);
             reviewerName.setText(dj.review.userName);
-            reviewRating.setText("⭐ " + dj.review.rating);
+            reviewRatingBar.setRating(dj.review.rating);
             reviewText.setText("\"" + dj.review.comment + "\"");
         }
         else
