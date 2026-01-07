@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="24dp"
     tools:context=".HomeScreen">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/now_trending_headline"
@@ -15,25 +14,93 @@
         android:text="Now Trending"
         android:textSize="34sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Login"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:text="Sign Up"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/buttoun_to_party_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ButtounToPartyProfile"
-        android:textSize="34sp" />
+        android:textSize="20sp"
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/nearby_djs_healine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nearby Dj's"
-        android:textSize="34sp" />
+        android:textSize="34sp"
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/find_new_djs_healine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find new Dj's"
-        android:textSize="34sp" />
+        android:textSize="34sp"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".HomeScreen">-->
+
+<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/now_trending_headline"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Now Trending"-->
+<!--        android:textSize="34sp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttoun_to_party_profile"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="ButtounToPartyProfile"-->
+<!--        android:textSize="34sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nearby_djs_healine"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Nearby Dj's"-->
+<!--        android:textSize="34sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/find_new_djs_healine"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Find new Dj's"-->
+<!--        android:textSize="34sp" />-->
+
+<!--</LinearLayout>-->
