@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.djpanda.data.AppData;
-import com.example.djpanda.models.Dj;
+import com.example.djpanda.models.Dj_model;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,7 +73,7 @@ public class DjsProfile extends Fragment {
             djId = args.getInt("djId", 0);
         }
         Log.d("DjsProfile", "djId=" + djId);
-        Dj dj = AppData.getDjById(djId);
+        Dj_model dj = AppData.getDjById(djId);
 
         ImageView djImage = view.findViewById(R.id.djImage);
         TextView djNameText = view.findViewById(R.id.dj_profile_name);

@@ -1,6 +1,6 @@
 package com.example.djpanda.models;
 
-public class Dj {
+public class Dj_model {
     public final int id;
     public final String name;
     public final int imageResId;
@@ -11,7 +11,7 @@ public class Dj {
     public final int reviewsCount;
     public final Review review;
 
-    public Dj(
+    public Dj_model(
             int id,
             String name,
             int imageResId,

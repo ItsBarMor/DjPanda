@@ -5,6 +5,10 @@
 
     <string name="party_image">Party image</string>
     <string name="dj_image">DJ image</string>
+    <string name="account">account</string>
+    <string name="party_name">Party name</string>
+
+
 
 
 </resources>

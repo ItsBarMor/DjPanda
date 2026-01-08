@@ -1,7 +1,7 @@
 package com.example.djpanda;
 import com.example.djpanda.data.AppData;
 import com.example.djpanda.models.Party;
-import com.example.djpanda.models.Dj;
+import com.example.djpanda.models.Dj_model;
 import android.widget.TextView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -63,7 +63,7 @@ public class PartyProfile extends Fragment {
         partyImage.setImageResource(party.imageResId);
 
         partyDateTimeText.setText(party.date + " | " + party.time + " | ");
-        Dj dj = AppData.getDjById(party.djId);
+        Dj_model dj = AppData.getDjById(party.djId);
 
         if (dj != null) {
             djProfileName.setText(dj.name);

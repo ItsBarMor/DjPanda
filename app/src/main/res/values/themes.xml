@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.DjPanda" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:fontFamily">@font/inter_family</item>
-        <item name="fontFamily">@font/inter_family</item>
 
     </style>
 
     <style name="Theme.DjPanda" parent="Base.Theme.DjPanda" />
+
+    <style name="ShapeAppearanceOverlay.Material3.Corner.Full" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

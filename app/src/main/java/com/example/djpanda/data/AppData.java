@@ -1,14 +1,14 @@
 package com.example.djpanda.data;
 import com.example.djpanda.R;
 import com.example.djpanda.models.Party;
-import com.example.djpanda.models.Dj;
+import com.example.djpanda.models.Dj_model;
 import java.util.ArrayList;
 import com.example.djpanda.models.Review;
 
 public class AppData {
     public static final ArrayList<Party> parties = new ArrayList<>();
     // 1- Trance, 2- Techno, 3- HipHop, 4- Pop, 5- Latin
-    public static final ArrayList<Dj> djs = new ArrayList<>();
+    public static final ArrayList<Dj_model> djs = new ArrayList<>();
     //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Superstar, 5- Dj Shakira
 
     static {
@@ -125,7 +125,7 @@ public class AppData {
                         "Start with a fun warm-up early on, then ride the energy as the dance floor turns into a full Latin fiesta!"
         ));
 
-        djs.add(new Dj(
+        djs.add(new Dj_model(
                 1,
                 "Dj Panda",
                 R.drawable.dj_panda,
@@ -138,7 +138,7 @@ public class AppData {
                 new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f)
         ));
 
-        djs.add(new Dj(
+        djs.add(new Dj_model(
                 2,
                 "Dj Timmy",
                 R.drawable.dj_timmy,
@@ -151,7 +151,7 @@ public class AppData {
                 new Review("Eli Kopter.", "Proper underground techno vibes. The bass was hitting hard!", 4.5f)
         ));
 
-        djs.add(new Dj(
+        djs.add(new Dj_model(
                 3,
                 "Dj Hippo",
                 R.drawable.dj_hippo,
@@ -164,7 +164,7 @@ public class AppData {
                 new Review("Amit Nakesh", "Perfect mix of R&B and HipHop. Dj Hippo really knows how to control the crowd.", 4.0f)
         ));
 
-        djs.add(new Dj(
+        djs.add(new Dj_model(
                 4,
                 "Dj Superstar",
                 R.drawable.dj_superstar,
@@ -176,7 +176,7 @@ public class AppData {
                 new Review("Eden Shoulders", "The best pop party in town! Sing-along anthems from start to finish.", 5.0f)
         ));
 
-        djs.add(new Dj(
+        djs.add(new Dj_model(
                 5,
                 "Dj Shakira",
                 R.drawable.dj_shakira,
@@ -199,8 +199,8 @@ public class AppData {
         }
         return null;
     }
-    public static Dj getDjById(int id) {
-        for (Dj d : djs) {
+    public static Dj_model getDjById(int id) {
+        for (Dj_model d : djs) {
             if (d.id == id) {
                 return d;
             }

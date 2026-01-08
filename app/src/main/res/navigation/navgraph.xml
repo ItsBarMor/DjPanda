@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_homeScreen_to_allPartiesUnderTheSameCategory"
             app:destination="@id/allPartiesUnderTheSameCategory" />
+        <action
+            android:id="@+id/action_homeScreen_to_signIn2"
+            app:destination="@id/signIn" />
     </fragment>
 
     <fragment
