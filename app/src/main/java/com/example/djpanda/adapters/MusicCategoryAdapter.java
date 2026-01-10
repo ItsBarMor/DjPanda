@@ -1,11 +1,13 @@
 package com.example.djpanda.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.djpanda.R;
@@ -40,6 +42,15 @@ public class MusicCategoryAdapter
         music_category_model category = categories.get(position);
 
         holder.image.setImageResource(category.imageRes);
+
+        holder.itemView.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("genre", category.musicGenre);
+
+            Navigation.findNavController(v)
+                    .navigate(R.id.action_homeScreen_to_allPartiesUnderTheSameCategory, bundle);
+        });
+
 
 
     }

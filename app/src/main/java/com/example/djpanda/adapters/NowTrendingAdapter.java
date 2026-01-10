@@ -1,5 +1,6 @@
 package com.example.djpanda.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.djpanda.R;
@@ -33,10 +35,19 @@ public class NowTrendingAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         NowTrendingParty_model party = parties.get(position);
         holder.image.setImageResource(party.imageRes);
         holder.title.setText(party.title);
         holder.subtitle.setText(party.subtitle);
+
+        holder.itemView.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("partyId", party.id);
+
+            Navigation.findNavController(v)
+                    .navigate(R.id.action_homeScreen_to_partyProfile, bundle);
+        });
     }
 
     @Override

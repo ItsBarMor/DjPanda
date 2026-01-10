@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_homeScreen_to_signIn2"
             app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_homeScreen_to_djsProfile"
+            app:destination="@id/djsProfile" />
     </fragment>
 
     <fragment

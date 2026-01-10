@@ -11,7 +11,6 @@
     app:strokeColor="?attr/colorOutline"
     app:cardBackgroundColor="?attr/colorSurface">
 
-    <!-- IMAGE FULL CARD -->
     <ImageView
         android:id="@+id/categoryImage"
         android:layout_width="match_parent"

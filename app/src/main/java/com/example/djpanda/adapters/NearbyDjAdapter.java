@@ -1,11 +1,13 @@
 package com.example.djpanda.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.djpanda.R;
@@ -36,6 +38,15 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
         holder.image.setImageResource(dj.imageRes);
         holder.name.setText(dj.name);
         holder.distance.setText(dj.distance);
+
+        holder.itemView.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("djId", dj.id);
+
+            Navigation.findNavController(v)
+                    .navigate(R.id.action_homeScreen_to_djsProfile, bundle);
+        });
+
     }
 
     @Override
@@ -53,6 +64,7 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
             name = itemView.findViewById(R.id.djName);
             distance = itemView.findViewById(R.id.djDistance);
         }
+
     }
 }
 
