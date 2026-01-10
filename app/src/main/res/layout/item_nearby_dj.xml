@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <!-- CIRCLE IMAGE -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/djImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/oren_lahav"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Circle" />
+
+    <!-- DJ NAME -->
+    <TextView
+        android:id="@+id/djName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="DJ BOB"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurface" />
+
+    <!-- DISTANCE / STATUS -->
+    <TextView
+        android:id="@+id/djDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.5 mi"
+        android:textSize="12sp"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+
+</LinearLayout>
