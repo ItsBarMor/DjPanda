@@ -37,13 +37,14 @@ public class PartyProfile extends Fragment {
 
         ImageView partyImage = view.findViewById(R.id.partyImage);
 
-        TextView djProfileName = view.findViewById(R.id.dj_profile_name);
+//        TextView djProfileName = view.findViewById(R.id.dj_profile_name);
         TextView partyDateTimeText = view.findViewById(R.id.partyDateTimeText);
         TextView partyLocationText = view.findViewById(R.id.partyLocationText);
         TextView partyPricesText = view.findViewById(R.id.partyPricesText);
         TextView partyDescriptionText = view.findViewById(R.id.partyDescriptionText);
 
         Button buttonToBuyingTickets = view.findViewById(R.id.button_to_buying_tickets);
+        Button buttonToDjProfile = view.findViewById(R.id.button_to_dj_profile);
 
         if (party == null) {
             partyNameText.setText("Party not found");
@@ -62,27 +63,8 @@ public class PartyProfile extends Fragment {
         partyNameText.setText(party.name);
         partyImage.setImageResource(party.imageResId);
 
-        partyDateTimeText.setText(party.date + " | " + party.time + " | ");
+        partyDateTimeText.setText(party.date + " | " + party.time);
         Dj_model dj = AppData.getDjById(party.djId);
-
-        if (dj != null) {
-            djProfileName.setText(dj.name);
-        }
-        else {
-            djProfileName.setText("DJ not found");
-
-        }
-
-        djProfileName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("djId", party.djId);
-                Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
-            }
-        });
-
-        djProfileName.setPaintFlags(djProfileName.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         partyLocationText.setText(party.locationName + ", " + party.city + " | " + party.genres);
         partyDescriptionText.setText(party.description);
@@ -96,6 +78,14 @@ public class PartyProfile extends Fragment {
                     Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_buyingTicketsFragment,bundle);
             }
         });
+
+
+        buttonToDjProfile.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("djId", party.djId);
+            Navigation.findNavController(view).navigate(R.id.action_partyProfile_to_djsProfile, bundle);
+        });
+
 
         return view;
     }

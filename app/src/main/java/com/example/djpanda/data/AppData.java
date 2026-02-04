@@ -12,124 +12,222 @@ public class AppData {
     //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Superstar, 5- Dj Shakira
 
     static {
-        //Trance
+        // קטגוריות: Pop, 80s, Rockstar, Techno
+
+// Techno (3)
         parties.add(new Party(
                 1,
-                "Trance Night TLV",
-                "Trance",
-                R.drawable.party_trance_night_tlv,
-                "12/01/2026",
-                "23:00",
-                "Haoman 17",
-                "Tel Aviv",
-                1,
-                "Trance",
-                120.0,
-                110.0,
-                100.0,
-                90.0,
-                "10/01/2026",
-                18,
-                "Trance Night TLV is back at Haoman 17 with the one and only: \nDj Panda!!!\n"
-                +"Two dance floors, uplifting & progressive trance all night, and a crowd that comes for pure energy.\n" +
-                        "Expect big builds, clean drops, and a nonstop vibe until sunrise!"
-
-        ));
-
-        //Techno
-        parties.add(new Party(
-                2,
                 "Warehouse Techno",
                 "Techno",
-                R.drawable.party_warehouse_techno,
+                R.drawable.techno_party1,
                 "18/01/2026",
                 "00:30",
                 "Terminal X",
                 "Tel Aviv",
-                2,
+                1,
                 "Techno",
-                160.0,
-                140.0,
-                120.0,
-                105.0,
+                160.0, 140.0, 120.0, 105.0,
                 "15/01/2026",
                 21,
-                "Step into Terminal X for a true warehouse techno experience:\n raw industrial vibes, deep shadows, pounding kicks, and a sound system built for pressure!\n" +
-                        "From driving techno to harder peak-time moments, this one goes all the way!"
+                "A true warehouse techno night with heavy bass and dark vibes."
         ));
 
-        //HipHop
+        parties.add(new Party(
+                2,
+                "Neon Tech Sessions",
+                "Techno",
+                R.drawable.techno_party2,
+                "07/02/2026",
+                "01:00",
+                "Underground Dock",
+                "Haifa",
+                6,
+                "Techno",
+                150.0, 130.0, 110.0, 95.0,
+                "04/02/2026",
+                18,
+                "Futuristic techno set with Dj Neon and a powerful sound system."
+        ));
+
         parties.add(new Party(
                 3,
-                "Urban Friday",
-                "HipHop",
-                R.drawable.party_urban_friday,
-                "24/01/2026",
-                "22:30",
-                "Club Pulse",
-                "Rishon LeZion",
-                3,
-                "HipHop",
-                120.0,
-                100.0,
-                90.0,
-                75.0,
-                "20/01/2026",
+                "Techno After Hours",
+                "Techno",
+                R.drawable.techno_party3,
+                "22/02/2026",
+                "02:00",
+                "Concrete Room",
+                "Tel Aviv",
+                2,
+                "Techno",
+                140.0, 120.0, 105.0, 90.0,
+                "20/02/2026",
                 18,
-                "Urban Friday at Club Pulse brings the perfect mix of hip-hop and R&B!\nSmooth warmup vibes, sing-along hooks, and a packed dance floor all night :)\n"+
-                        "Expect throwbacks, current bangers, and a crowd that knows the words!\nSee you soon!"
+                "Late-night techno for real dancers. Deep, driving, nonstop."
         ));
 
-        //Pop
+// Pop (3)
         parties.add(new Party(
                 4,
                 "Mainstream Saturday",
                 "Pop",
-                R.drawable.party_mainstream_saturday,
+                R.drawable.pop_party1,
                 "01/02/2026",
                 "23:30",
                 "Sky Bar",
                 "Tel Aviv",
-                4,
+                5,
                 "Pop",
-                130.0,
-                110.0,
-                95.0,
-                80.0,
+                130.0, 110.0, 95.0, 80.0,
                 "28/01/2026",
                 18,
-                "Mainstream Saturday at Sky Bar is all about big hits and bigger energy!\n"+
-                        "The latest chart-toppers, dance anthems, and a high-production party vibe.\n" +
-                        "Expect confetti moments, hands-in-the-air drops, and a packed floor from start to finish!"
+                "Big hits, sing-along anthems, and high energy all night."
         ));
 
-        //Latin
         parties.add(new Party(
                 5,
-                "Latin Hit",
-                "Latin",
-                R.drawable.party_latin_hit,
-                "08/02/2026",
-                "22:00",
-                "La Casa",
-                "Holon",
-                5,
-                "Latin",
-                125.0,
-                105.0,
-                85.0,
-                70.0,
-                "05/02/2026",
+                "Pop Glow Party",
+                "Pop",
+                R.drawable.pop_party2,
+                "14/02/2026",
+                "23:00",
+                "Rooftop Arena",
+                "Ramat Gan",
+                4,
+                "Pop",
+                135.0, 115.0, 95.0, 85.0,
+                "12/02/2026",
                 18,
-                "Latin Hit at La Casa brings the heat with Dj Shakira!!!\n" + "Reggaeton, Latin hits, and nonstop rhythm all night.\n"+
-                        "Start with a fun warm-up early on, then ride the energy as the dance floor turns into a full Latin fiesta!"
+                "Pop remixes, bright vibes, and a packed dance floor."
         ));
+
+        parties.add(new Party(
+                6,
+                "Chart Hits Night",
+                "Pop",
+                R.drawable.pop_party3,
+                "28/02/2026",
+                "22:30",
+                "City Club",
+                "Holon",
+                6,
+                "Pop",
+                120.0, 105.0, 90.0, 75.0,
+                "25/02/2026",
+                18,
+                "All the latest chart hits in one night. No breaks, just fun."
+        ));
+
+// 80s (3)
+        parties.add(new Party(
+                7,
+                "80s Retro Night",
+                "80s",
+                R.drawable.old_music_party1,
+                "09/02/2026",
+                "21:30",
+                "Retro Hall",
+                "Tel Aviv",
+                5,
+                "80s Pop",
+                110.0, 95.0, 85.0, 70.0,
+                "07/02/2026",
+                18,
+                "Classic 80s hits, retro vibes, and nonstop nostalgia."
+        ));
+
+        parties.add(new Party(
+                8,
+                "Back To The 80s",
+                "80s",
+                R.drawable.old_music_party2,
+                "20/02/2026",
+                "22:00",
+                "Flash Club",
+                "Rishon LeZion",
+                3,
+                "80s Classics",
+                115.0, 100.0, 85.0, 75.0,
+                "18/02/2026",
+                18,
+                "80s classics with a fun crowd and a warm nostalgic atmosphere."
+        ));
+
+        parties.add(new Party(
+                9,
+                "Retro Dance Floor",
+                "80s",
+                R.drawable.old_music_party3,
+                "06/03/2026",
+                "22:00",
+                "Neon Ballroom",
+                "Herzliya",
+                1,
+                "80s Dance",
+                120.0, 105.0, 90.0, 80.0,
+                "04/03/2026",
+                18,
+                "Big 80s choruses, dance remixes, and a happy vibe."
+        ));
+
+// Rockstar (3)
+        parties.add(new Party(
+                10,
+                "Rockstar Night",
+                "Rockstar",
+                R.drawable.rock_party1,
+                "13/02/2026",
+                "22:30",
+                "Guitar Club",
+                "Tel Aviv",
+                6,
+                "Rock Classics",
+                125.0, 110.0, 95.0, 80.0,
+                "11/02/2026",
+                18,
+                "Rock anthems, loud energy, and a crowd that sings every chorus."
+        ));
+
+        parties.add(new Party(
+                11,
+                "Legends Of Rock",
+                "Rockstar",
+                R.drawable.rock_party2,
+                "27/02/2026",
+                "23:00",
+                "Stage House",
+                "Haifa",
+                2,
+                "Rock",
+                130.0, 115.0, 100.0, 85.0,
+                "25/02/2026",
+                18,
+                "A night of classic rock legends and heavy sing-along moments."
+        ));
+
+        parties.add(new Party(
+                12,
+                "Rock & Dance",
+                "Rockstar",
+                R.drawable.rock_party3,
+                "08/03/2026",
+                "22:00",
+                "Pulse Arena",
+                "Holon",
+                3,
+                "Rock Mix",
+                120.0, 105.0, 90.0, 75.0,
+                "06/03/2026",
+                18,
+                "Rock vibes with dance energy. Fast, fun, and loud."
+        ));
+
 
         djs.add(new Dj_model(
                 1,
                 "Dj Panda",
                 R.drawable.dj_panda,
-                "Trance",
+                "Pop • Techno • 80s • Rockstar",
                 "Tel Aviv | Ramat Gan",
                 "Fueling the dance floor with pure adrenaline!\nKnown for high-energy trance sets,\nDj Panda masters the art of the Trance.\n"+
                         "If you’re looking for a nonstop journey through uplifting melodies and heart-pounding beats, you’re in the right place.",
@@ -142,7 +240,7 @@ public class AppData {
                 2,
                 "Dj Timmy",
                 R.drawable.dj_timmy,
-                "Techno",
+                "Techno • House • Rock",
                 "Tel Aviv | Herzliya",
                 "The king of the underground!\nDj Timmy brings the raw energy of warehouse techno straight to the booth.\n" +
                         "Expect deep, driving grooves, heavy basslines, and a dark, industrial atmosphere that keeps the crowd moving in a trance-like state until the early morning hours.",
@@ -155,7 +253,7 @@ public class AppData {
                 3,
                 "Dj Hippo",
                 R.drawable.dj_hippo,
-                "HipHop",
+                "HipHop • Techno",
                 "Rishon LeZion | Bat Yam",
                 "Where smooth meets hype.\nDj Hippo is a master of crowd control, seamlessly blending old-school R&B soul with the freshest hip-hop bangers.\n"+
                         "From the soulful warmup to the peak-time energy, he knows exactly how to keep the vibe electric and the hands in the air.",
@@ -180,14 +278,37 @@ public class AppData {
                 5,
                 "Dj Shakira",
                 R.drawable.dj_shakira,
-                "Latin",
-                "Holon | Tel Aviv",
-                "Bringing the heat of the tropics to the city!\n"+"Dj Shakira is all about rhythm, passion, and reggaeton fire." +
-                        "\nHer sets are a vibrant fiesta, starting with sun-drenched warmups and building into a high-intensity Latin explosion that makes it impossible to stay seated.",
-                4.5,
-                143,
-                new Review("Moni Tor", "Pure fire! The reggaeton rhythms were exactly what we needed :)", 4.5f)
+                "Pop • Rock • Techno • Dance • Reggaeton",
+                "Tel Aviv | Holon | Rishon LeZion",
+                "A global party experience in one DJ!\n" +
+                        "Dj Shakira is known for her incredible versatility and ability to move seamlessly between styles.\n" +
+                        "From pop anthems and Latin heat to hip-hop grooves and nonstop dance hits,\n" +
+                        "she reads the crowd perfectly and keeps the energy high from start to finish.",
+                4.8,
+                245,
+                new Review(
+                        "Maya Levi",
+                        "Unreal energy! She played everything we wanted and the dance floor was on fire all night.",
+                        5.0f
+                )
         ));
+
+
+        djs.add(new Dj_model(
+                6,
+                "Dj Neon",
+                R.drawable.dj_neon, // ודאי שיש לך תמונה בשם זה בתיקיית drawable
+                "Techno • House • Pop ",
+                "Haifa | Caesarea",
+                "Illuminating the night with electric pulses and deep bass.\n" +
+                        "Dj Neon creates an immersive audiovisual experience that transcends the ordinary.\n" +
+                        "Known for futuristic soundscapes and a relentless energy that keeps the dance floor glowing until the early hours of the morning.",
+                4.8,
+                215,
+                new Review("Orly Light", "Incredible atmosphere! The lighting and the drops were out of this world.", 5.0f)
+        ));
+
+
 
     }
 

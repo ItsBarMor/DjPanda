@@ -1,5 +1,6 @@
 package com.example.djpanda;
 
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,8 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeScreen extends Fragment {
-
-    public HomeScreen() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,12 +85,12 @@ public class HomeScreen extends Fragment {
         );
 
         List<NearbyDj_model> dummyDjs = new ArrayList<>();
-        dummyDjs.add(new NearbyDj_model(1, R.drawable.oren_lahav, "DJ OREN", "0.4 km"));
-        dummyDjs.add(new NearbyDj_model(2,R.drawable.oren_lahav, "DJ Lahav", "1.2 km"));
-        dummyDjs.add(new NearbyDj_model(3,R.drawable.oren_lahav, "DJ GOAT", "2.1 km"));
-        dummyDjs.add(new NearbyDj_model(4,R.drawable.oren_lahav, "DJ Bar", "0.4 km"));
-        dummyDjs.add(new NearbyDj_model(5,R.drawable.oren_lahav, "DJ Betty", "1.2 km"));
-        dummyDjs.add(new NearbyDj_model(6,R.drawable.oren_lahav, "DJ Or", "2.1 km"));
+        dummyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "0.4 km"));
+        dummyDjs.add(new NearbyDj_model(2,R.drawable.dj_timmy, "DJ TIMMY", "1.2 km"));
+        dummyDjs.add(new NearbyDj_model(3,R.drawable.dj_hippo, "DJ HIPPO", "2.1 km"));
+        dummyDjs.add(new NearbyDj_model(4,R.drawable.dj_superstar, "DJ SUPERSTAR", "0.4 km"));
+        dummyDjs.add(new NearbyDj_model(5,R.drawable.dj_shakira, "DJ SHAKIRA", "1.2 km"));
+        dummyDjs.add(new NearbyDj_model(6,R.drawable.dj_neon, "DJ NEON", "2.1 km"));
 
         nearbyRecycler.setAdapter(new NearbyDjAdapter(dummyDjs));
 
@@ -113,5 +113,9 @@ public class HomeScreen extends Fragment {
 
 
         return view;
+
+
     }
+
 }
+

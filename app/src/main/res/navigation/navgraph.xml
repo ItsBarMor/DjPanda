@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_allPartiesUnderTheSameCategory_to_djsProfile"
             app:destination="@id/djsProfile" />
+        <action
+            android:id="@+id/action_allPartiesUnderTheSameCategory_to_partyProfile"
+            app:destination="@id/partyProfile" />
     </fragment>
 
     <fragment

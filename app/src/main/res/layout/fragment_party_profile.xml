@@ -1,106 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     tools:context=".PartyProfile">
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
-        android:background="#c492b1">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#F6F2F7">
 
-        <TextView
-            android:id="@+id/partyNameText"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:text="Party Name"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            app:cardCornerRadius="22dp"
+            app:cardElevation="8dp"
+            android:layout_marginBottom="14dp">
 
-        <ImageView
-            android:id="@+id/partyImage"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="4dp"
-            android:contentDescription="@string/party_image" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/partyDateTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fontFamily="@font/poppins_semibold"
-                android:textSize="23sp"
-                android:gravity="center"
-                android:maxLines="1"
-                app:autoSizeTextType="uniform"/>
-
-            <TextView
-                android:id="@+id/dj_profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Dj Panda"
-                android:textSize="23sp"
-                app:fontFamily="@font/poppins_semibold"
-                android:textColor="#9C27B0"
-                android:layout_marginStart="4dp"
-                android:maxLines="1"
-                app:autoSizeTextType="uniform"/></LinearLayout>
-
-            <TextView
-                android:id="@+id/partyLocationText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                app:fontFamily="@font/poppins_medium"
-                android:gravity="center" />
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/partyDescriptionText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:justificationMode="none"
-            android:layout_marginHorizontal="20dp"
-            android:lineSpacingExtra="6dp"
-            app:fontFamily="@font/inter_medium"
-            android:textAlignment="center"
-            />
+                <ImageView
+                    android:id="@+id/partyImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/party_image" />
 
-        <TextView
-            android:id="@+id/partyPricesText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="17sp"
-            app:fontFamily="@font/inter_semibold"
-            />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-        <Button
-            android:id="@+id/button_to_buying_tickets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Buy Tickets"
-            android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/partyNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Party Name"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/partyDateTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            app:fontFamily="@font/poppins_semibold" />
+
+                        <TextView
+                            android:id="@+id/dj_profile_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Dj Panda"
+                            android:textSize="18sp"
+                            android:layout_marginStart="8dp"
+                            android:textColor="#9C27B0"
+                            android:maxLines="1"
+                            app:autoSizeTextType="uniform"
+                            app:fontFamily="@font/poppins_semibold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/partyLocationText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        app:fontFamily="@font/poppins_medium" />
+
+                    <TextView
+                        android:id="@+id/partyDescriptionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="6dp"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="14dp"
+                        app:fontFamily="@font/inter_medium" />
+
+                    <TextView
+                        android:id="@+id/partyPricesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:weightSum="2">
+
+                        <!-- כפתור ראשי -->
+                        <Button
+                            android:id="@+id/button_to_buying_tickets"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="Buy Tickets"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#77075D1F"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginEnd="8dp"
+                             />
+
+                        <Button
+                            android:id="@+id/button_to_dj_profile"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="DJ Profile"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#4094BD"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
-
