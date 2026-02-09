@@ -9,5 +9,19 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="BottomRoundedOnly">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">32dp</item>
+        <item name="cornerSizeBottomRight">32dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+    </style>
+
+
+
+
+
+
+
 
 </resources>

@@ -25,10 +25,7 @@ public class AppData {
                 "Terminal X",
                 "Tel Aviv",
                 1,
-                "Techno",
-                160.0, 140.0, 120.0, 105.0,
-                "15/01/2026",
-                21,
+                50,
                 "A true warehouse techno night with heavy bass and dark vibes."
         ));
 
@@ -42,10 +39,7 @@ public class AppData {
                 "Underground Dock",
                 "Haifa",
                 6,
-                "Techno",
-                150.0, 130.0, 110.0, 95.0,
-                "04/02/2026",
-                18,
+                24,
                 "Futuristic techno set with Dj Neon and a powerful sound system."
         ));
 
@@ -59,11 +53,9 @@ public class AppData {
                 "Concrete Room",
                 "Tel Aviv",
                 2,
-                "Techno",
-                140.0, 120.0, 105.0, 90.0,
-                "20/02/2026",
-                18,
+                38,
                 "Late-night techno for real dancers. Deep, driving, nonstop."
+
         ));
 
 // Pop (3)
@@ -77,11 +69,10 @@ public class AppData {
                 "Sky Bar",
                 "Tel Aviv",
                 5,
-                "Pop",
-                130.0, 110.0, 95.0, 80.0,
-                "28/01/2026",
-                18,
+                20,
                 "Big hits, sing-along anthems, and high energy all night."
+
+
         ));
 
         parties.add(new Party(
@@ -94,11 +85,9 @@ public class AppData {
                 "Rooftop Arena",
                 "Ramat Gan",
                 4,
-                "Pop",
-                135.0, 115.0, 95.0, 85.0,
-                "12/02/2026",
-                18,
+                19,
                 "Pop remixes, bright vibes, and a packed dance floor."
+
         ));
 
         parties.add(new Party(
@@ -111,10 +100,7 @@ public class AppData {
                 "City Club",
                 "Holon",
                 6,
-                "Pop",
-                120.0, 105.0, 90.0, 75.0,
-                "25/02/2026",
-                18,
+                40,
                 "All the latest chart hits in one night. No breaks, just fun."
         ));
 
@@ -129,10 +115,7 @@ public class AppData {
                 "Retro Hall",
                 "Tel Aviv",
                 5,
-                "80s Pop",
-                110.0, 95.0, 85.0, 70.0,
-                "07/02/2026",
-                18,
+                60,
                 "Classic 80s hits, retro vibes, and nonstop nostalgia."
         ));
 
@@ -146,10 +129,7 @@ public class AppData {
                 "Flash Club",
                 "Rishon LeZion",
                 3,
-                "80s Classics",
-                115.0, 100.0, 85.0, 75.0,
-                "18/02/2026",
-                18,
+                57,
                 "80s classics with a fun crowd and a warm nostalgic atmosphere."
         ));
 
@@ -163,10 +143,7 @@ public class AppData {
                 "Neon Ballroom",
                 "Herzliya",
                 1,
-                "80s Dance",
-                120.0, 105.0, 90.0, 80.0,
-                "04/03/2026",
-                18,
+                42,
                 "Big 80s choruses, dance remixes, and a happy vibe."
         ));
 
@@ -181,11 +158,9 @@ public class AppData {
                 "Guitar Club",
                 "Tel Aviv",
                 6,
-                "Rock Classics",
-                125.0, 110.0, 95.0, 80.0,
-                "11/02/2026",
                 18,
                 "Rock anthems, loud energy, and a crowd that sings every chorus."
+
         ));
 
         parties.add(new Party(
@@ -198,11 +173,9 @@ public class AppData {
                 "Stage House",
                 "Haifa",
                 2,
-                "Rock",
-                130.0, 115.0, 100.0, 85.0,
-                "25/02/2026",
-                18,
+                47,
                 "A night of classic rock legends and heavy sing-along moments."
+
         ));
 
         parties.add(new Party(
@@ -215,10 +188,7 @@ public class AppData {
                 "Pulse Arena",
                 "Holon",
                 3,
-                "Rock Mix",
-                120.0, 105.0, 90.0, 75.0,
-                "06/03/2026",
-                18,
+                33,
                 "Rock vibes with dance energy. Fast, fun, and loud."
         ));
 
@@ -229,12 +199,16 @@ public class AppData {
                 R.drawable.dj_panda,
                 "Pop • Techno • 80s • Rockstar",
                 "Tel Aviv | Ramat Gan",
-                "Fueling the dance floor with pure adrenaline!\nKnown for high-energy trance sets,\nDj Panda masters the art of the Trance.\n"+
+                "Fueling the dance floor with pure adrenaline!\nKnown for high-energy trance sets,\nDj Panda masters the art of the Trance.\n" +
                         "If you’re looking for a nonstop journey through uplifting melodies and heart-pounding beats, you’re in the right place.",
                 4.6,
                 128,
-                new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f)
+                new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f),
+                32.0853,   // Tel Aviv
+                34.7818,
+                0f
         ));
+
 
         djs.add(new Dj_model(
                 2,
@@ -246,8 +220,12 @@ public class AppData {
                         "Expect deep, driving grooves, heavy basslines, and a dark, industrial atmosphere that keeps the crowd moving in a trance-like state until the early morning hours.",
                 4.4,
                 92,
-                new Review("Eli Kopter.", "Proper underground techno vibes. The bass was hitting hard!", 4.5f)
+                new Review("Eli Kopter.", "Proper underground techno vibes. The bass was hitting hard!", 4.5f),
+                32.1656,   // Herzliya
+                34.8444,
+                0f
         ));
+
 
         djs.add(new Dj_model(
                 3,
@@ -255,12 +233,16 @@ public class AppData {
                 R.drawable.dj_hippo,
                 "HipHop • Techno",
                 "Rishon LeZion | Bat Yam",
-                "Where smooth meets hype.\nDj Hippo is a master of crowd control, seamlessly blending old-school R&B soul with the freshest hip-hop bangers.\n"+
+                "Where smooth meets hype.\nDj Hippo is a master of crowd control, seamlessly blending old-school R&B soul with the freshest hip-hop bangers.\n" +
                         "From the soulful warmup to the peak-time energy, he knows exactly how to keep the vibe electric and the hands in the air.",
                 4.2,
                 56,
-                new Review("Amit Nakesh", "Perfect mix of R&B and HipHop. Dj Hippo really knows how to control the crowd.", 4.0f)
+                new Review("Amit Nakesh", "Perfect mix of R&B and HipHop. Dj Hippo really knows how to control the crowd.", 4.0f),
+                31.9640,   // Rishon LeZion
+                34.8040,
+                0f
         ));
+
 
         djs.add(new Dj_model(
                 4,
@@ -268,11 +250,16 @@ public class AppData {
                 R.drawable.dj_superstar,
                 "Pop",
                 "Holon",
-                "Your soundtrack to the perfect night out!\nDj Superstar specializes in pure energy and sing-along anthems."+"\nMixing the biggest global chart-toppers with high-octane dance remixes, she ensures that every moment on the floor is a 'hands-in-the-air' confetti moment.",
+                "Your soundtrack to the perfect night out!\nDj Superstar specializes in pure energy and sing-along anthems.\n" +
+                        "Mixing the biggest global chart-toppers with high-octane dance remixes, she ensures that every moment on the floor is a 'hands-in-the-air' confetti moment.",
                 4.7,
                 210,
-                new Review("Eden Shoulders", "The best pop party in town! Sing-along anthems from start to finish.", 5.0f)
+                new Review("Eden Shoulders", "The best pop party in town! Sing-along anthems from start to finish.", 5.0f),
+                32.0104,   // Holon
+                34.7792,
+                0f
         ));
+
 
         djs.add(new Dj_model(
                 5,
@@ -286,27 +273,31 @@ public class AppData {
                         "she reads the crowd perfectly and keeps the energy high from start to finish.",
                 4.8,
                 245,
-                new Review(
-                        "Maya Levi",
-                        "Unreal energy! She played everything we wanted and the dance floor was on fire all night.",
-                        5.0f
-                )
+                new Review("Maya Levi", "Unreal energy! She played everything we wanted and the dance floor was on fire all night.", 5.0f),
+                32.0853,   // Tel Aviv
+                34.7818,
+                0f
         ));
+
 
 
         djs.add(new Dj_model(
                 6,
                 "Dj Neon",
-                R.drawable.dj_neon, // ודאי שיש לך תמונה בשם זה בתיקיית drawable
-                "Techno • House • Pop ",
+                R.drawable.dj_neon,
+                "Techno • House • Pop",
                 "Haifa | Caesarea",
                 "Illuminating the night with electric pulses and deep bass.\n" +
                         "Dj Neon creates an immersive audiovisual experience that transcends the ordinary.\n" +
                         "Known for futuristic soundscapes and a relentless energy that keeps the dance floor glowing until the early hours of the morning.",
                 4.8,
                 215,
-                new Review("Orly Light", "Incredible atmosphere! The lighting and the drops were out of this world.", 5.0f)
+                new Review("Orly Light", "Incredible atmosphere! The lighting and the drops were out of this world.", 5.0f),
+                32.7940,   // Haifa
+                34.9896,
+                0f
         ));
+
 
 
 

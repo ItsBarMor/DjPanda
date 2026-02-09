@@ -9,19 +9,8 @@ public class Party {
     public final String time;
     public final String locationName;
     public final String city;
-
     public final int djId;
-
-    public final String genres;
-
-    public final double priceMen;
-    public final double priceWomen;
-
-    public final double earlyPriceMen;
-    public final double earlyPriceWomen;
-    public final String earlySaleValidUntilDate; //when the early sale ends
-
-    public final int ageLimit;
+    public final int price;
     public final String description;
 
     public Party(
@@ -34,13 +23,7 @@ public class Party {
             String locationName,
             String city,
             int djId,
-            String genres,
-            double priceMen,
-            double priceWomen,
-            double earlyPriceMen,
-            double earlyPriceWomen,
-            String earlySaleValidUntilDate,
-            int ageLimit,
+            int price,
             String description
     ) {
         this.id = id;
@@ -52,13 +35,7 @@ public class Party {
         this.locationName = locationName;
         this.city = city;
         this.djId = djId;
-        this.genres = genres;
-        this.priceMen = priceMen;
-        this.priceWomen = priceWomen;
-        this.earlyPriceMen = earlyPriceMen;
-        this.earlyPriceWomen = earlyPriceWomen;
-        this.earlySaleValidUntilDate = earlySaleValidUntilDate;
-        this.ageLimit = ageLimit;
+        this.price = price;
         this.description = description;
     }
 }

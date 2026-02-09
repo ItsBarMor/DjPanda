@@ -10,5 +10,13 @@
     <string name="sign_in">Sign in</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_up">Sign up</string>
+    <string name="ticket_purchase">Ticket Purchase</string>
+    <string name="party_date">Party date</string>
+    <string name="party_time">Party time</string>
+    <string name="party_location">Party location</string>
+    <string name="party_price">Party price</string>
+
+
+
 
 </resources>

@@ -1,53 +1,88 @@
 package com.example.djpanda;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
-
+import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.djpanda.adapters.MusicCategoryAdapter;
 import com.example.djpanda.adapters.NearbyDjAdapter;
 import com.example.djpanda.adapters.NowTrendingAdapter;
 import com.example.djpanda.models.NearbyDj_model;
 import com.example.djpanda.models.NowTrendingParty_model;
 import com.example.djpanda.models.music_category_model;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.material.appbar.MaterialToolbar;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeScreen extends Fragment {
 
+    private FusedLocationProviderClient fusedLocationClient;
+    private NearbyDjAdapter nearbyAdapter;
+    private List<NearbyDj_model> nearbyDjs;
+
+    private final ActivityResultLauncher<String[]> locationPermissionLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.RequestMultiplePermissions(),
+                    result -> {
+
+                        Boolean fineGranted = result.getOrDefault(
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                false
+                        );
+
+                        if (Boolean.TRUE.equals(fineGranted)) {
+                            Toast.makeText(
+                                    requireContext(),
+                                    "Location permission granted",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                            getUserLocationAndSortDjs();
+
+                        } else {
+                            Toast.makeText(
+                                    requireContext(),
+                                    "Location is required to show nearby DJs",
+                                    Toast.LENGTH_LONG
+                            ).show();
+                        }
+                    }
+            );
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
 
         View view = inflater.inflate(R.layout.fragment_home_screen, container, false);
 
+
         MaterialToolbar topAppBar = view.findViewById(R.id.topAppBar);
         topAppBar.inflateMenu(R.menu.top_app_bar_menu);
-
-//        topAppBar.getMenu().add("Sign In")
-//                .setOnMenuItemClickListener(item -> {
-//                    androidx.navigation.fragment.NavHostFragment
-//                            .findNavController(HomeScreen.this)
-//                            .navigate(R.id.action_homeScreen_to_signIn);
-//                    return true;
-//                });
 
         View avatarView = topAppBar.getMenu()
                 .findItem(R.id.action_account)
                 .getActionView();
 
-        PopupMenu popup = new PopupMenu(
+        PopupMenu popupMenu = new PopupMenu(
                 requireContext(),
                 avatarView,
                 Gravity.END,
@@ -55,17 +90,17 @@ public class HomeScreen extends Fragment {
                 R.style.AvatarPopupMenu
         );
 
-        popup.inflate(R.menu.avatar_menu);
+        popupMenu.inflate(R.menu.avatar_menu);
 
-        popup.setOnMenuItemClickListener(item -> {
+        popupMenu.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_signin) {
-                NavHostFragment.findNavController(HomeScreen.this)
+                NavHostFragment.findNavController(this)
                         .navigate(R.id.action_homeScreen_to_signIn);
                 return true;
             }
 
             if (item.getItemId() == R.id.action_signup) {
-                NavHostFragment.findNavController(HomeScreen.this)
+                NavHostFragment.findNavController(this)
                         .navigate(R.id.action_homeScreen_to_signUp);
                 return true;
             }
@@ -73,9 +108,8 @@ public class HomeScreen extends Fragment {
             return false;
         });
 
+        avatarView.setOnClickListener(v -> popupMenu.show());
 
-
-        avatarView.setOnClickListener(v -> popup.show());
 
         RecyclerView trendingRecycler = view.findViewById(R.id.nowTrendingRecycler);
         trendingRecycler.setLayoutManager(
@@ -85,33 +119,29 @@ public class HomeScreen extends Fragment {
         );
 
         List<NowTrendingParty_model> trendingParties = new ArrayList<>();
-        trendingParties.add(new NowTrendingParty_model(
-                1, R.drawable.dj_panda, "Neon Nights", "Fri · 10 PM · $20"));
-        trendingParties.add(new NowTrendingParty_model(
-                2, R.drawable.oren_lahav, "Summer Bass", "Sat · 2 PM · $45"));
-        trendingParties.add(new NowTrendingParty_model(
-                3, R.mipmap.app_logo, "Tech Pulse", "Tonight · $30"));
+        trendingParties.add(new NowTrendingParty_model(1, R.drawable.dj_panda, "Neon Nights", "Fri · 10 PM · $20"));
+        trendingParties.add(new NowTrendingParty_model(2, R.drawable.oren_lahav, "Summer Bass", "Sat · 2 PM · $45"));
+        trendingParties.add(new NowTrendingParty_model(3, R.mipmap.app_logo, "Tech Pulse", "Tonight · $30"));
 
         trendingRecycler.setAdapter(new NowTrendingAdapter(trendingParties));
 
+
         RecyclerView nearbyRecycler = view.findViewById(R.id.nearbyDjRecycler);
         nearbyRecycler.setLayoutManager(
-                new LinearLayoutManager(
-                        requireContext(),
+                new LinearLayoutManager(requireContext(),
                         LinearLayoutManager.HORIZONTAL,
-                        false
-                )
+                        false)
         );
 
-        List<NearbyDj_model> dummyDjs = new ArrayList<>();
-        dummyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "0.4 km"));
-        dummyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "1.2 km"));
-        dummyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "2.1 km"));
-        dummyDjs.add(new NearbyDj_model(4, R.drawable.dj_superstar, "DJ SUPERSTAR", "0.4 km"));
-        dummyDjs.add(new NearbyDj_model(5, R.drawable.dj_shakira, "DJ SHAKIRA", "1.2 km"));
-        dummyDjs.add(new NearbyDj_model(6, R.drawable.dj_neon, "DJ NEON", "2.1 km"));
+        nearbyDjs = new ArrayList<>();
+        nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "—", 32.0853, 34.7818));   // Tel Aviv
+        nearbyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "—", 32.1663, 34.8433));  // Herzliya
+        nearbyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "—", 31.9642, 34.8047));  // Rishon
 
-        nearbyRecycler.setAdapter(new NearbyDjAdapter(dummyDjs));
+        nearbyAdapter = new NearbyDjAdapter(nearbyDjs);
+        nearbyRecycler.setAdapter(nearbyAdapter);
+
+
 
         RecyclerView categoriesRecycler = view.findViewById(R.id.categoriesRecycler);
         categoriesRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
@@ -124,6 +154,77 @@ public class HomeScreen extends Fragment {
 
         categoriesRecycler.setAdapter(new MusicCategoryAdapter(categories));
 
+
+        fusedLocationClient =
+                LocationServices.getFusedLocationProviderClient(requireActivity());
+
+        if (hasLocationPermission()) {
+            getUserLocationAndSortDjs();
+        } else {
+            requestLocationPermission();
+        }
+
         return view;
+    }
+
+    private boolean hasLocationPermission() {
+        return ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestLocationPermission() {
+        locationPermissionLauncher.launch(
+                new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                }
+        );
+    }
+
+    private void getUserLocationAndSortDjs() {
+
+        if (!hasLocationPermission()) return;
+
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(location -> {
+                    if (location == null) return;
+
+                    double userLat = location.getLatitude();
+                    double userLng = location.getLongitude();
+
+                    calculateDistances(userLat, userLng, nearbyDjs);
+                    sortByDistance(nearbyDjs);
+
+                    nearbyAdapter.notifyDataSetChanged();
+                });
+    }
+
+    private void calculateDistances(
+            double userLat,
+            double userLng,
+            List<NearbyDj_model> djs
+    ) {
+        for (NearbyDj_model dj : djs) {
+
+            float[] results = new float[1];
+
+            Location.distanceBetween(
+                    userLat,
+                    userLng,
+                    dj.latitude,
+                    dj.longitude,
+                    results
+            );
+
+            dj.distanceFromUser = results[0];
+        }
+    }
+
+    private void sortByDistance(List<NearbyDj_model> djs) {
+        djs.sort((dj1, dj2) ->
+                Float.compare(dj1.distanceFromUser, dj2.distanceFromUser)
+        );
     }
 }

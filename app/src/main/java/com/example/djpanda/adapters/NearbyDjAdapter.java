@@ -39,6 +39,13 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
         holder.name.setText(dj.name);
         holder.distance.setText(dj.distance);
 
+        if (dj.distanceFromUser > 0) {
+            float distanceKm = dj.distanceFromUser / 1000f;
+            holder.distance.setText(String.format("%.1f km", distanceKm));
+        } else {
+            holder.distance.setText("—");
+        }
+
         holder.itemView.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putInt("djId", dj.id);

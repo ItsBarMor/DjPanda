@@ -66,7 +66,7 @@ public class PartyProfile extends Fragment {
         partyDateTimeText.setText(party.date + " | " + party.time);
         Dj_model dj = AppData.getDjById(party.djId);
 
-        partyLocationText.setText(party.locationName + ", " + party.city + " | " + party.genres);
+        partyLocationText.setText(party.locationName + ", " + party.city);
         partyDescriptionText.setText(party.description);
 
 

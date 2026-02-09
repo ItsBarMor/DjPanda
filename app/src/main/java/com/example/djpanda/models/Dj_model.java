@@ -10,6 +10,10 @@ public class Dj_model {
     public final double rating; // the ratings are between 0.0 to 5.0
     public final int reviewsCount;
     public final Review review;
+    public double latitude;
+    public double longitude;
+    public float distanceFromUser;
+
 
     public Dj_model(
             int id,
@@ -20,7 +24,10 @@ public class Dj_model {
             String bio,
             double rating,
             int reviewsCount,
-            Review review
+            Review review,
+            double latitude,
+            double longitude,
+            float distanceFromUser
 
     ) {
         this.id = id;
@@ -32,5 +39,8 @@ public class Dj_model {
         this.rating = rating;
         this.reviewsCount = reviewsCount;
         this.review=review;
+        this.latitude=latitude;
+        this.longitude=longitude;
+        this.distanceFromUser=distanceFromUser;
     }
 }
