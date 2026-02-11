@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SignUp() {
-        // 1. מציאת כל השדות (כולל שם פרטי ומשפחה מה-XML)
         EditText firstNameET = findViewById(R.id.first_name_edit);
         EditText lastNameET = findViewById(R.id.last_name_edit);
         EditText emailET = findViewById(R.id.email_edit);
@@ -88,13 +87,11 @@ public class MainActivity extends AppCompatActivity {
         String email = emailET.getText().toString().trim();
         String password = passwordET.getText().toString().trim();
 
-        // 2. בדיקה שכל השדות מולאו
         if (fName.isEmpty() || lName.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields (Name, Email and Password)", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // 3. יצירת משתמש חדש ב-Firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -102,12 +99,10 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
 
-                            // 4. ניווט לדף הבית רק אחרי הצלחה
                             NavHostFragment.findNavController(getSupportFragmentManager()
                                             .findFragmentById(R.id.nav_host))
                                     .navigate(R.id.action_signUp_to_homeScreen);
                         } else {
-                            // הצגת הודעת שגיאה ספציפית מ-Firebase (למשל אם האימייל כבר קיים)
                             String error = task.getException() != null ? task.getException().getMessage() : "Registration Failed";
                             Toast.makeText(MainActivity.this, error, Toast.LENGTH_LONG).show();
                         }

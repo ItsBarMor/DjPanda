@@ -28,6 +28,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -35,6 +36,9 @@ android {
 }
 
 dependencies {
+
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-auth")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -43,6 +47,9 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.fragment)
     implementation("com.google.android.material:material:1.11.0")
+    implementation("com.airbnb.android:lottie:6.4.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -25,8 +25,8 @@ public class AppData {
                 "Terminal X",
                 "Tel Aviv",
                 1,
-                50,
-                "A true warehouse techno night with heavy bass and dark vibes."
+                20,
+                "A true warehouse techno night with heavy bass and dark vibes.\nPrice: 20$"
         ));
 
         parties.add(new Party(
@@ -40,7 +40,7 @@ public class AppData {
                 "Haifa",
                 6,
                 24,
-                "Futuristic techno set with Dj Neon and a powerful sound system."
+                "Futuristic techno set with Dj Neon and a powerful sound system.\nPrice: 24$"
         ));
 
         parties.add(new Party(
@@ -54,8 +54,7 @@ public class AppData {
                 "Tel Aviv",
                 2,
                 38,
-                "Late-night techno for real dancers. Deep, driving, nonstop."
-
+                "Late-night techno for real dancers. Deep, driving, nonstop.\nPrice: 38$"
         ));
 
 // Pop (3)
@@ -70,9 +69,7 @@ public class AppData {
                 "Tel Aviv",
                 5,
                 20,
-                "Big hits, sing-along anthems, and high energy all night."
-
-
+                "Big hits, sing-along anthems, and high energy all night.\nPrice: 20$"
         ));
 
         parties.add(new Party(
@@ -85,9 +82,8 @@ public class AppData {
                 "Rooftop Arena",
                 "Ramat Gan",
                 4,
-                19,
-                "Pop remixes, bright vibes, and a packed dance floor."
-
+                45,
+                "Pop remixes, bright vibes, and a packed dance floor.\nPrice: 45$"
         ));
 
         parties.add(new Party(
@@ -101,7 +97,7 @@ public class AppData {
                 "Holon",
                 6,
                 40,
-                "All the latest chart hits in one night. No breaks, just fun."
+                "All the latest chart hits in one night. No breaks, just fun.\nPrice: 40$"
         ));
 
 // 80s (3)
@@ -116,7 +112,7 @@ public class AppData {
                 "Tel Aviv",
                 5,
                 60,
-                "Classic 80s hits, retro vibes, and nonstop nostalgia."
+                "Classic 80s hits, retro vibes, and nonstop nostalgia.\nPrice: 60$"
         ));
 
         parties.add(new Party(
@@ -130,7 +126,7 @@ public class AppData {
                 "Rishon LeZion",
                 3,
                 57,
-                "80s classics with a fun crowd and a warm nostalgic atmosphere."
+                "80s classics with a fun crowd and a warm nostalgic atmosphere.\nPrice: 57$"
         ));
 
         parties.add(new Party(
@@ -144,7 +140,7 @@ public class AppData {
                 "Herzliya",
                 1,
                 42,
-                "Big 80s choruses, dance remixes, and a happy vibe."
+                "Big 80s choruses, dance remixes, and a happy vibe.\nPrice: 42$"
         ));
 
 // Rockstar (3)
@@ -159,8 +155,7 @@ public class AppData {
                 "Tel Aviv",
                 6,
                 18,
-                "Rock anthems, loud energy, and a crowd that sings every chorus."
-
+                "Rock anthems, loud energy, and a crowd that sings every chorus.\nPrice: 18$"
         ));
 
         parties.add(new Party(
@@ -173,9 +168,8 @@ public class AppData {
                 "Stage House",
                 "Haifa",
                 2,
-                47,
-                "A night of classic rock legends and heavy sing-along moments."
-
+                30,
+                "A night of classic rock legends and heavy sing-along moments.\nPrice: 30$"
         ));
 
         parties.add(new Party(
@@ -189,8 +183,9 @@ public class AppData {
                 "Holon",
                 3,
                 33,
-                "Rock vibes with dance energy. Fast, fun, and loud."
+                "Rock vibes with dance energy. Fast, fun, and loud.\nPrice: 33$"
         ));
+
 
 
         djs.add(new Dj_model(
@@ -204,7 +199,7 @@ public class AppData {
                 4.6,
                 128,
                 new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f),
-                32.0853,   // Tel Aviv
+                32.0853,
                 34.7818,
                 0f
         ));
@@ -221,7 +216,7 @@ public class AppData {
                 4.4,
                 92,
                 new Review("Eli Kopter.", "Proper underground techno vibes. The bass was hitting hard!", 4.5f),
-                32.1656,   // Herzliya
+                32.1656,
                 34.8444,
                 0f
         ));
@@ -238,7 +233,7 @@ public class AppData {
                 4.2,
                 56,
                 new Review("Amit Nakesh", "Perfect mix of R&B and HipHop. Dj Hippo really knows how to control the crowd.", 4.0f),
-                31.9640,   // Rishon LeZion
+                31.9640,
                 34.8040,
                 0f
         ));
@@ -255,7 +250,7 @@ public class AppData {
                 4.7,
                 210,
                 new Review("Eden Shoulders", "The best pop party in town! Sing-along anthems from start to finish.", 5.0f),
-                32.0104,   // Holon
+                32.0104,
                 34.7792,
                 0f
         ));
@@ -274,7 +269,7 @@ public class AppData {
                 4.8,
                 245,
                 new Review("Maya Levi", "Unreal energy! She played everything we wanted and the dance floor was on fire all night.", 5.0f),
-                32.0853,   // Tel Aviv
+                32.0853,
                 34.7818,
                 0f
         ));
@@ -293,7 +288,7 @@ public class AppData {
                 4.8,
                 215,
                 new Review("Orly Light", "Incredible atmosphere! The lighting and the drops were out of this world.", 5.0f),
-                32.7940,   // Haifa
+                32.7940,
                 34.9896,
                 0f
         ));

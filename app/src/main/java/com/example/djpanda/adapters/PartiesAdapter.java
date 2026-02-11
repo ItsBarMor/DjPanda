@@ -41,7 +41,6 @@ public class PartiesAdapter extends RecyclerView.Adapter<PartiesAdapter.PartyVH>
         holder.partyTitle.setText(p.name);
         holder.partyImage.setImageResource(p.imageResId);
 
-        // שורה שנייה קצרה ופשוטה (תאריך + עיר + מועדון)
         String subtitle = p.date + " | " + p.city + " | " + p.locationName;
         holder.partySubtitle.setText(subtitle);
 

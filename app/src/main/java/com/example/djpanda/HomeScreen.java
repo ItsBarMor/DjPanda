@@ -1,5 +1,8 @@
 package com.example.djpanda;
-
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -88,15 +91,15 @@ public class HomeScreen extends Fragment {
 
         popupMenu.inflate(R.menu.avatar_menu);
 
-        popupMenu.setOnMenuItemClickListener(item -> {
-        MenuItem signOutItem = popup.getMenu().findItem(R.id.action_signout);
+        MenuItem signOutItem = popupMenu.getMenu().findItem(R.id.action_signout);
         if (signOutItem != null) {
             SpannableString s = new SpannableString(signOutItem.getTitle().toString());
             s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
             signOutItem.setTitle(s);
         }
 
-        popup.setOnMenuItemClickListener(item -> {
+        popupMenu.setOnMenuItemClickListener(item -> {
+
             if (item.getItemId() == R.id.action_signin) {
                 NavHostFragment.findNavController(this)
                         .navigate(R.id.action_homeScreen_to_signIn);
@@ -110,7 +113,11 @@ public class HomeScreen extends Fragment {
             }
 
             if (item.getItemId() == R.id.action_signout) {
-                Toast.makeText(requireContext(), "You have been signed out successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        requireContext(),
+                        "You have been signed out successfully",
+                        Toast.LENGTH_SHORT
+                ).show();
                 return true;
             }
 
@@ -119,41 +126,41 @@ public class HomeScreen extends Fragment {
 
         avatarView.setOnClickListener(v -> popupMenu.show());
 
-
-
-        avatarView.setOnClickListener(v -> popup.show());
-
         RecyclerView trendingRecycler = view.findViewById(R.id.nowTrendingRecycler);
         trendingRecycler.setLayoutManager(
-                new LinearLayoutManager(requireContext(),
+                new LinearLayoutManager(
+                        requireContext(),
                         LinearLayoutManager.HORIZONTAL,
-                        false)
+                        false
+                )
         );
 
         List<NowTrendingParty_model> trendingParties = new ArrayList<>();
-        trendingParties.add(new NowTrendingParty_model(1, R.drawable.dj_panda, "Neon Nights", "Fri · 10 PM · $20"));
-        trendingParties.add(new NowTrendingParty_model(2, R.drawable.oren_lahav, "Summer Bass", "Sat · 2 PM · $45"));
-        trendingParties.add(new NowTrendingParty_model(3, R.mipmap.app_logo, "Tech Pulse", "Tonight · $30"));
+        trendingParties.add(new NowTrendingParty_model(1, R.drawable.techno_party1, "Warehouse Techno", "Fri · 2 PM · $20"));
+        trendingParties.add(new NowTrendingParty_model(5, R.drawable.pop_party2, "Pop Glow Party", "Sat · 10 PM · $45"));
+        trendingParties.add(new NowTrendingParty_model(11, R.drawable.rock_party2, "Legends Of Rock", "Next Week · 8 PM · $30"));
 
         trendingRecycler.setAdapter(new NowTrendingAdapter(trendingParties));
 
-
         RecyclerView nearbyRecycler = view.findViewById(R.id.nearbyDjRecycler);
         nearbyRecycler.setLayoutManager(
-                new LinearLayoutManager(requireContext(),
+                new LinearLayoutManager(
+                        requireContext(),
                         LinearLayoutManager.HORIZONTAL,
-                        false)
+                        false
+                )
         );
 
         nearbyDjs = new ArrayList<>();
-        nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "—", 32.0853, 34.7818));   // Tel Aviv
-        nearbyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "—", 32.1663, 34.8433));  // Herzliya
-        nearbyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "—", 31.9642, 34.8047));  // Rishon
+        nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "—", 32.0853, 34.7818));
+        nearbyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "—", 32.1663, 34.8433));
+        nearbyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "—", 31.9642, 34.8047));
+        nearbyDjs.add(new NearbyDj_model(4, R.drawable.dj_superstar, "DJ SUPERSTAR", "—", 32.7940, 34.9896));
+        nearbyDjs.add(new NearbyDj_model(5, R.drawable.dj_shakira, "DJ SHAKIRA", "—", 31.7683, 35.2137));
+        nearbyDjs.add(new NearbyDj_model(6, R.drawable.dj_neon, "DJ NEON", "—", 31.2520, 34.7913));
 
         nearbyAdapter = new NearbyDjAdapter(nearbyDjs);
         nearbyRecycler.setAdapter(nearbyAdapter);
-
-
 
         RecyclerView categoriesRecycler = view.findViewById(R.id.categoriesRecycler);
         categoriesRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
@@ -165,7 +172,6 @@ public class HomeScreen extends Fragment {
         categories.add(new music_category_model("techno", R.drawable.techno_card2));
 
         categoriesRecycler.setAdapter(new MusicCategoryAdapter(categories));
-
 
         fusedLocationClient =
                 LocationServices.getFusedLocationProviderClient(requireActivity());

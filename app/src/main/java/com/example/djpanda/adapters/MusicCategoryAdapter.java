@@ -40,12 +40,10 @@ public class MusicCategoryAdapter extends RecyclerView.Adapter<MusicCategoryAdap
 
         holder.image.setImageResource(category.imageRes);
 
-        // שימי לב: יש רק OnClick אחד (לא שניים)
         holder.itemView.setOnClickListener(v -> {
 
             String categoryToSend = "";
 
-            // category.musicGenre אצלך הוא: "old_music" / "pop" / "rock" / "techno"
             if ("pop".equalsIgnoreCase(category.musicGenre)) categoryToSend = "Pop";
             else if ("techno".equalsIgnoreCase(category.musicGenre)) categoryToSend = "Techno";
             else if ("old_music".equalsIgnoreCase(category.musicGenre)) categoryToSend = "80s";
