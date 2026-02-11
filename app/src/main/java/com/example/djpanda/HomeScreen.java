@@ -1,11 +1,11 @@
 package com.example.djpanda;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
@@ -66,14 +66,10 @@ public class HomeScreen extends Fragment {
             );
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater,
-            ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home_screen, container, false);
-
 
         MaterialToolbar topAppBar = view.findViewById(R.id.topAppBar);
         topAppBar.inflateMenu(R.menu.top_app_bar_menu);
@@ -93,6 +89,14 @@ public class HomeScreen extends Fragment {
         popupMenu.inflate(R.menu.avatar_menu);
 
         popupMenu.setOnMenuItemClickListener(item -> {
+        MenuItem signOutItem = popup.getMenu().findItem(R.id.action_signout);
+        if (signOutItem != null) {
+            SpannableString s = new SpannableString(signOutItem.getTitle().toString());
+            s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
+            signOutItem.setTitle(s);
+        }
+
+        popup.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_signin) {
                 NavHostFragment.findNavController(this)
                         .navigate(R.id.action_homeScreen_to_signIn);
@@ -105,11 +109,19 @@ public class HomeScreen extends Fragment {
                 return true;
             }
 
+            if (item.getItemId() == R.id.action_signout) {
+                Toast.makeText(requireContext(), "You have been signed out successfully", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
             return false;
         });
 
         avatarView.setOnClickListener(v -> popupMenu.show());
 
+
+
+        avatarView.setOnClickListener(v -> popup.show());
 
         RecyclerView trendingRecycler = view.findViewById(R.id.nowTrendingRecycler);
         trendingRecycler.setLayoutManager(
