@@ -1,11 +1,16 @@
 package com.example.djpanda;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -35,14 +40,6 @@ public class HomeScreen extends Fragment {
         MaterialToolbar topAppBar = view.findViewById(R.id.topAppBar);
         topAppBar.inflateMenu(R.menu.top_app_bar_menu);
 
-//        topAppBar.getMenu().add("Sign In")
-//                .setOnMenuItemClickListener(item -> {
-//                    androidx.navigation.fragment.NavHostFragment
-//                            .findNavController(HomeScreen.this)
-//                            .navigate(R.id.action_homeScreen_to_signIn);
-//                    return true;
-//                });
-
         View avatarView = topAppBar.getMenu()
                 .findItem(R.id.action_account)
                 .getActionView();
@@ -57,6 +54,13 @@ public class HomeScreen extends Fragment {
 
         popup.inflate(R.menu.avatar_menu);
 
+        MenuItem signOutItem = popup.getMenu().findItem(R.id.action_signout);
+        if (signOutItem != null) {
+            SpannableString s = new SpannableString(signOutItem.getTitle().toString());
+            s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
+            signOutItem.setTitle(s);
+        }
+
         popup.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_signin) {
                 NavHostFragment.findNavController(HomeScreen.this)
@@ -70,8 +74,14 @@ public class HomeScreen extends Fragment {
                 return true;
             }
 
+            if (item.getItemId() == R.id.action_signout) {
+                Toast.makeText(requireContext(), "You have been signed out successfully", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
             return false;
         });
+
 
 
 
@@ -85,12 +95,13 @@ public class HomeScreen extends Fragment {
         );
 
         List<NowTrendingParty_model> trendingParties = new ArrayList<>();
+
         trendingParties.add(new NowTrendingParty_model(
-                1, R.drawable.dj_panda, "Neon Nights", "Fri · 10 PM · $20"));
+                1, R.drawable.techno_party1, "Warehouse Techno", "Fri · 2 PM · $20"));
         trendingParties.add(new NowTrendingParty_model(
-                2, R.drawable.oren_lahav, "Summer Bass", "Sat · 2 PM · $45"));
+                3, R.drawable.pop_party2, "Pop Glow Party", "Sat · 10 PM · $45"));
         trendingParties.add(new NowTrendingParty_model(
-                3, R.mipmap.app_logo, "Tech Pulse", "Tonight · $30"));
+                3, R.drawable.rock_party2, "Legends Of Rock", "Next Week · 8 PM · $30"));
 
         trendingRecycler.setAdapter(new NowTrendingAdapter(trendingParties));
 

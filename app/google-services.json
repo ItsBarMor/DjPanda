@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137765140932",
+    "project_id": "djpandaproject",
+    "storage_bucket": "djpandaproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137765140932:android:8d7041afebb9b1a4b34c91",
+        "android_client_info": {
+          "package_name": "com.example.djpanda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL1Nhlv0vWJMcsL0022tMV_9rZF9aOHUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
