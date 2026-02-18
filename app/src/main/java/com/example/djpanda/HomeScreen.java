@@ -152,12 +152,12 @@ public class HomeScreen extends Fragment {
         );
 
         nearbyDjs = new ArrayList<>();
-        nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "—", 32.0853, 34.7818));
-        nearbyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "—", 32.1663, 34.8433));
-        nearbyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "—", 31.9642, 34.8047));
-        nearbyDjs.add(new NearbyDj_model(4, R.drawable.dj_superstar, "DJ SUPERSTAR", "—", 32.7940, 34.9896));
-        nearbyDjs.add(new NearbyDj_model(5, R.drawable.dj_shakira, "DJ SHAKIRA", "—", 31.7683, 35.2137));
-        nearbyDjs.add(new NearbyDj_model(6, R.drawable.dj_neon, "DJ NEON", "—", 31.2520, 34.7913));
+        nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "-", 32.0853, 34.7818));
+        nearbyDjs.add(new NearbyDj_model(2, R.drawable.dj_timmy, "DJ TIMMY", "-", 32.1663, 34.8433));
+        nearbyDjs.add(new NearbyDj_model(3, R.drawable.dj_hippo, "DJ HIPPO", "-", 31.9642, 34.8047));
+        nearbyDjs.add(new NearbyDj_model(4, R.drawable.dj_superstar, "DJ SUPERSTAR", "-", 32.7940, 34.9896));
+        nearbyDjs.add(new NearbyDj_model(5, R.drawable.dj_shakira, "DJ SHAKIRA", "-", 31.7683, 35.2137));
+        nearbyDjs.add(new NearbyDj_model(6, R.drawable.dj_neon, "DJ NEON", "-", 31.2520, 34.7913));
 
         nearbyAdapter = new NearbyDjAdapter(nearbyDjs);
         nearbyRecycler.setAdapter(nearbyAdapter);
