@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <!-- CIRCLE IMAGE -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/djImage"
         android:layout_width="64dp"
@@ -15,7 +14,6 @@
         android:src="@drawable/oren_lahav"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Circle" />
 
-    <!-- DJ NAME -->
     <TextView
         android:id="@+id/djName"
         android:layout_width="wrap_content"
@@ -25,7 +23,6 @@
         android:textSize="14sp"
         android:textColor="?attr/colorOnSurface" />
 
-    <!-- DISTANCE / STATUS -->
     <TextView
         android:id="@+id/djDistance"
         android:layout_width="wrap_content"

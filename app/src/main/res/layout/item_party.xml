@@ -11,18 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- תמונת המסיבה -->
         <ImageView
             android:id="@+id/partyImage"
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/party_image"
+            android:contentDescription="Party Image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- שם המסיבה -->
         <TextView
             android:id="@+id/partyTitle"
             android:layout_width="0dp"
@@ -38,7 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- תאריך / עיר / מועדון -->
         <TextView
             android:id="@+id/partySubtitle"
             android:layout_width="0dp"
