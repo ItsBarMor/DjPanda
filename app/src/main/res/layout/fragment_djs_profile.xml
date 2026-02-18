@@ -126,6 +126,38 @@
                 tools:text="Fueling the dance floor with pure adrenaline. Specializing in high-energy sets that keep the crowd moving until sunrise." />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/reviewSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Add your comment (optional)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000066"
+            app:fontFamily="@font/poppins_semibold" />
+
+        <EditText
+            android:id="@+id/reviewEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Type here..."
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:inputType="text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmitReview"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="Submit"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/blue" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/review_layout"
             android:layout_width="match_parent"
