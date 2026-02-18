@@ -14,10 +14,29 @@
         android:visibility="gone"
         android:background="#EEEEEE">
 
-        <TextView android:id="@+id/lat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lat: unknown" android:textColor="#000000" />
-        <TextView android:id="@+id/lon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lon: unknown" android:textColor="#000000" />
-        <TextView android:id="@+id/place" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Place: unknown" android:textColor="#000000" />
-        <TextView android:id="@+id/speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
+        <TextView android:id="@+id/lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lat: unknown"
+            android:textColor="#000000" />
+
+        <TextView android:id="@+id/lon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lon: unknown"
+            android:textColor="#000000" />
+
+        <TextView android:id="@+id/place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place: unknown"
+            android:textColor="#000000" />
+
+        <TextView android:id="@+id/speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

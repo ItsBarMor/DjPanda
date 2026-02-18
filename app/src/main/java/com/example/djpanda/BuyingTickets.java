@@ -100,8 +100,6 @@ public class BuyingTickets extends Fragment {
 
         purchaseButton.setOnClickListener(v -> {
 
-            String note = noteEditText.getText().toString().trim();
-
             purchaseButton.setEnabled(false);
             cancelButton.setEnabled(false);
 
@@ -112,12 +110,6 @@ public class BuyingTickets extends Fragment {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     lottieOverlay.setVisibility(View.GONE);
-
-                    if (!TextUtils.isEmpty(note)) {
-                        Toast.makeText(requireContext(),
-                                "New request added: " + note,
-                                Toast.LENGTH_SHORT).show();
-                    }
 
                     Toast.makeText(requireContext(),
                             "Purchase completed successfully",

@@ -292,9 +292,6 @@ public class AppData {
                 0f
         ));
 
-
-
-
     }
 
     public static Party getPartyById(int id) {
