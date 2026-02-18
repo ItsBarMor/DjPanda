@@ -18,7 +18,7 @@ import java.util.List;
 
 public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHolder> {
 
-    final private List<NearbyDj_model> djs;
+    private final List<NearbyDj_model> djs;
 
     public NearbyDjAdapter(List<NearbyDj_model> djs) {
         this.djs = djs;
@@ -35,16 +35,18 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NearbyDj_model dj = djs.get(position);
+
+
         holder.image.setImageResource(dj.imageRes);
         holder.name.setText(dj.name);
-        holder.distance.setText(dj.distance);
 
-        if (dj.distanceFromUser > 0) {
-            float distanceKm = dj.distanceFromUser / 1000f;
-            holder.distance.setText(String.format("%.1f km", distanceKm));
+
+        if (dj.distance != null && !dj.distance.isEmpty()) {
+            holder.distance.setText(dj.distance);
         } else {
-            holder.distance.setText("-");
+            holder.distance.setText("Calculating...");
         }
+
 
         holder.itemView.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -53,7 +55,6 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
             Navigation.findNavController(v)
                     .navigate(R.id.action_homeScreen_to_djsProfile, bundle);
         });
-
     }
 
     @Override
@@ -71,7 +72,5 @@ public class NearbyDjAdapter extends RecyclerView.Adapter<NearbyDjAdapter.ViewHo
             name = itemView.findViewById(R.id.djName);
             distance = itemView.findViewById(R.id.djDistance);
         }
-
     }
 }
-

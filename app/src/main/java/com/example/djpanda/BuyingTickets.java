@@ -23,7 +23,6 @@ import com.example.djpanda.models.Party;
 public class BuyingTickets extends Fragment {
 
     public BuyingTickets() {
-        // Required empty public constructor
     }
 
     private int ticketCount = 1;

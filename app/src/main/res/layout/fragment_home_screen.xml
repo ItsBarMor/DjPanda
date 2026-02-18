@@ -29,7 +29,6 @@
                 android:contentDescription="App Logo"
                 android:src="@mipmap/app_logo" />
 
-
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -42,14 +41,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?attr/colorSurfaceVariant"
+                android:padding="12dp"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lat: " android:textStyle="bold" />
+                    <TextView android:id="@+id/lat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="unknown" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" | Lon: " android:layout_marginStart="8dp" android:textStyle="bold" />
+                    <TextView android:id="@+id/lon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="unknown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Place: " android:textStyle="bold" />
+                    <TextView android:id="@+id/place" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="unknown" android:ellipsize="end" android:maxLines="1" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/nowTrendingTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="Now Trending"
                 android:fontFamily="@font/playpen_sans_hebrew_semi_bold"
                 android:textSize="20sp"
@@ -61,8 +89,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="12dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:clipToPadding="false"
                 tools:listitem="@layout/item_now_trending" />
 
@@ -70,7 +96,6 @@
                 android:id="@+id/nearbyDjTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="40dp"
                 android:text="Nearby Dj's "
                 android:fontFamily="@font/playpen_sans_hebrew_semi_bold"
@@ -83,8 +108,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginTop="12dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_nearby_dj" />
@@ -93,7 +116,6 @@
                 android:id="@+id/categoriesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="40dp"
                 android:text="Categories"
                 android:fontFamily="@font/playpen_sans_hebrew_semi_bold"
@@ -106,8 +128,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:clipToPadding="false" />
 
         </LinearLayout>
