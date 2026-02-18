@@ -1,4 +1,5 @@
 package com.example.djpanda;
+
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -44,112 +46,39 @@ public class HomeScreen extends Fragment {
             registerForActivityResult(
                     new ActivityResultContracts.RequestMultiplePermissions(),
                     result -> {
-
-                        Boolean fineGranted = result.getOrDefault(
-                                Manifest.permission.ACCESS_FINE_LOCATION,
-                                false
-                        );
-
+                        Boolean fineGranted = result.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false);
                         if (Boolean.TRUE.equals(fineGranted)) {
-                            Toast.makeText(
-                                    requireContext(),
-                                    "Location permission granted",
-                                    Toast.LENGTH_SHORT
-                            ).show();
                             getUserLocationAndSortDjs();
-
                         } else {
-                            Toast.makeText(
-                                    requireContext(),
-                                    "Location is required to show nearby DJs",
-                                    Toast.LENGTH_LONG
-                            ).show();
+                            Toast.makeText(requireContext(), "Location is required to show nearby DJs", Toast.LENGTH_LONG).show();
                         }
                     }
             );
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_home_screen, container, false);
+    }
 
-        View view = inflater.inflate(R.layout.fragment_home_screen, container, false);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         MaterialToolbar topAppBar = view.findViewById(R.id.topAppBar);
         topAppBar.inflateMenu(R.menu.top_app_bar_menu);
-
-        View avatarView = topAppBar.getMenu()
-                .findItem(R.id.action_account)
-                .getActionView();
-
-        PopupMenu popupMenu = new PopupMenu(
-                requireContext(),
-                avatarView,
-                Gravity.END,
-                0,
-                R.style.AvatarPopupMenu
-        );
-
-        popupMenu.inflate(R.menu.avatar_menu);
-
-        MenuItem signOutItem = popupMenu.getMenu().findItem(R.id.action_signout);
-        if (signOutItem != null) {
-            SpannableString s = new SpannableString(signOutItem.getTitle().toString());
-            s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
-            signOutItem.setTitle(s);
-        }
-
-        popupMenu.setOnMenuItemClickListener(item -> {
-
-            if (item.getItemId() == R.id.action_signin) {
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_homeScreen_to_signIn);
-                return true;
-            }
-
-            if (item.getItemId() == R.id.action_signup) {
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_homeScreen_to_signUp);
-                return true;
-            }
-
-            if (item.getItemId() == R.id.action_signout) {
-                Toast.makeText(
-                        requireContext(),
-                        "You have been signed out successfully",
-                        Toast.LENGTH_SHORT
-                ).show();
-                return true;
-            }
-
-            return false;
-        });
-
-        avatarView.setOnClickListener(v -> popupMenu.show());
+        View avatarView = topAppBar.getMenu().findItem(R.id.action_account).getActionView();
+        setupPopupMenu(avatarView);
 
         RecyclerView trendingRecycler = view.findViewById(R.id.nowTrendingRecycler);
-        trendingRecycler.setLayoutManager(
-                new LinearLayoutManager(
-                        requireContext(),
-                        LinearLayoutManager.HORIZONTAL,
-                        false
-                )
-        );
-
+        trendingRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         List<NowTrendingParty_model> trendingParties = new ArrayList<>();
         trendingParties.add(new NowTrendingParty_model(1, R.drawable.techno_party1, "Warehouse Techno", "Fri · 2 PM · $20"));
         trendingParties.add(new NowTrendingParty_model(5, R.drawable.pop_party2, "Pop Glow Party", "Sat · 10 PM · $45"));
         trendingParties.add(new NowTrendingParty_model(11, R.drawable.rock_party2, "Legends Of Rock", "Next Week · 8 PM · $30"));
-
         trendingRecycler.setAdapter(new NowTrendingAdapter(trendingParties));
 
         RecyclerView nearbyRecycler = view.findViewById(R.id.nearbyDjRecycler);
-        nearbyRecycler.setLayoutManager(
-                new LinearLayoutManager(
-                        requireContext(),
-                        LinearLayoutManager.HORIZONTAL,
-                        false
-                )
-        );
+        nearbyRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 
         nearbyDjs = new ArrayList<>();
         nearbyDjs.add(new NearbyDj_model(1, R.drawable.dj_panda, "DJ PANDA", "-", 32.0853, 34.7818));
@@ -162,87 +91,83 @@ public class HomeScreen extends Fragment {
         nearbyAdapter = new NearbyDjAdapter(nearbyDjs);
         nearbyRecycler.setAdapter(nearbyAdapter);
 
+        MainActivity main = (MainActivity) getActivity();
+        if (main != null) {
+            main.djList = nearbyDjs;
+            main.adapter = nearbyAdapter;
+
+          if (main.currentUserLat != 0) {
+                main.updateDjDistances();
+            }
+        }
+
         RecyclerView categoriesRecycler = view.findViewById(R.id.categoriesRecycler);
         categoriesRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
 
-        List<music_category_model> categories = new ArrayList<>();
-        categories.add(new music_category_model("old_music", R.drawable.verynice_card));
-        categories.add(new music_category_model("pop", R.drawable.pop_card));
-        categories.add(new music_category_model("rock", R.drawable.rock_card));
-        categories.add(new music_category_model("techno", R.drawable.techno_card2));
+        List<music_category_model> categoryList = new ArrayList<>();
+        categoryList.add(new music_category_model("old_music", R.drawable.verynice_card));
+        categoryList.add(new music_category_model("pop", R.drawable.pop_card));
+        categoryList.add(new music_category_model("rock", R.drawable.rock_card));
+        categoryList.add(new music_category_model("techno", R.drawable.techno_card2));
 
-        categoriesRecycler.setAdapter(new MusicCategoryAdapter(categories));
+        categoriesRecycler.setAdapter(new MusicCategoryAdapter(categoryList));
 
-        fusedLocationClient =
-                LocationServices.getFusedLocationProviderClient(requireActivity());
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         if (hasLocationPermission()) {
             getUserLocationAndSortDjs();
         } else {
             requestLocationPermission();
         }
+    }
 
-        return view;
+
+    private void setupPopupMenu(View avatarView) {
+        PopupMenu popupMenu = new PopupMenu(requireContext(), avatarView, Gravity.END, 0, R.style.AvatarPopupMenu);
+        popupMenu.inflate(R.menu.avatar_menu);
+        MenuItem signOutItem = popupMenu.getMenu().findItem(R.id.action_signout);
+        if (signOutItem != null) {
+            SpannableString s = new SpannableString(signOutItem.getTitle().toString());
+            s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
+            signOutItem.setTitle(s);
+        }
+        popupMenu.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.action_signin) {
+                NavHostFragment.findNavController(this).navigate(R.id.action_homeScreen_to_signIn);
+                return true;
+            }
+            if (item.getItemId() == R.id.action_signup) {
+                NavHostFragment.findNavController(this).navigate(R.id.action_homeScreen_to_signUp);
+                return true;
+            }
+            if (item.getItemId() == R.id.action_signout) {
+                Toast.makeText(requireContext(), "Signed out successfully", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return false;
+        });
+        avatarView.setOnClickListener(v -> popupMenu.show());
     }
 
     private boolean hasLocationPermission() {
-        return ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void requestLocationPermission() {
-        locationPermissionLauncher.launch(
-                new String[]{
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                }
-        );
+        locationPermissionLauncher.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION});
     }
 
     private void getUserLocationAndSortDjs() {
-
         if (!hasLocationPermission()) return;
+        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+            if (location == null) return;
 
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(location -> {
-                    if (location == null) return;
 
-                    double userLat = location.getLatitude();
-                    double userLng = location.getLongitude();
-
-                    calculateDistances(userLat, userLng, nearbyDjs);
-                    sortByDistance(nearbyDjs);
-
-                    nearbyAdapter.notifyDataSetChanged();
-                });
-    }
-
-    private void calculateDistances(
-            double userLat,
-            double userLng,
-            List<NearbyDj_model> djs
-    ) {
-        for (NearbyDj_model dj : djs) {
-
-            float[] results = new float[1];
-
-            Location.distanceBetween(
-                    userLat,
-                    userLng,
-                    dj.latitude,
-                    dj.longitude,
-                    results
-            );
-
-            dj.distanceFromUser = results[0];
-        }
-    }
-
-    private void sortByDistance(List<NearbyDj_model> djs) {
-        djs.sort((dj1, dj2) ->
-                Float.compare(dj1.distanceFromUser, dj2.distanceFromUser)
-        );
+            MainActivity main = (MainActivity) getActivity();
+            if (main != null) {
+                main.currentUserLat = location.getLatitude();
+                main.currentUserLon = location.getLongitude();
+                main.updateDjDistances();
+            }
+        });
     }
 }

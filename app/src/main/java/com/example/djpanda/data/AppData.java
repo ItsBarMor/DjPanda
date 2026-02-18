@@ -13,7 +13,6 @@ public class AppData {
 
     static {
 
-
 // Techno (3)
         parties.add(new Party(
                 1,
