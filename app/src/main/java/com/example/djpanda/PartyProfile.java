@@ -17,7 +17,7 @@ import androidx.navigation.Navigation;
 public class PartyProfile extends Fragment {
 
     public PartyProfile() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -37,7 +37,7 @@ public class PartyProfile extends Fragment {
 
         ImageView partyImage = view.findViewById(R.id.partyImage);
 
-//        TextView djProfileName = view.findViewById(R.id.dj_profile_name);
+
         TextView partyDateTimeText = view.findViewById(R.id.partyDateTimeText);
         TextView partyLocationText = view.findViewById(R.id.partyLocationText);
         TextView partyPricesText = view.findViewById(R.id.partyPricesText);
