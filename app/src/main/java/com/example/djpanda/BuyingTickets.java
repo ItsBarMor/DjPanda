@@ -3,10 +3,12 @@ package com.example.djpanda;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +25,6 @@ import com.example.djpanda.models.Party;
 public class BuyingTickets extends Fragment {
 
     public BuyingTickets() {
-        // Required empty public constructor
     }
 
     private int ticketCount = 1;
@@ -64,21 +65,20 @@ public class BuyingTickets extends Fragment {
         Button purchaseButton = view.findViewById(R.id.btnBuyNow);
         Button cancelButton = view.findViewById(R.id.btnGoBack);
 
+        EditText noteEditText = view.findViewById(R.id.noteEditText);
+
         partyName.setText(party.name);
         partyDate.setText(party.date);
         partyTime.setText(party.time);
         partyLocation.setText(party.locationName + ", " + party.city);
         partyImage.setImageResource(party.imageResId);
 
-
         pricePerTicket = party.price;
         TextView pricePerTicketText = view.findViewById(R.id.totalAmount);
-        pricePerTicketText.setText("$" + pricePerTicket );
+        pricePerTicketText.setText("$" + pricePerTicket);
 
         FrameLayout lottieOverlay = view.findViewById(R.id.lottieOverlay);
         LottieAnimationView lottie = view.findViewById(R.id.purchaseLottie);
-
-
 
         updateTotal(); // initial state
 
@@ -100,6 +100,8 @@ public class BuyingTickets extends Fragment {
 
         purchaseButton.setOnClickListener(v -> {
 
+            String note = noteEditText.getText().toString().trim();
+
             purchaseButton.setEnabled(false);
             cancelButton.setEnabled(false);
 
@@ -111,8 +113,14 @@ public class BuyingTickets extends Fragment {
                 public void onAnimationEnd(Animator animation) {
                     lottieOverlay.setVisibility(View.GONE);
 
+                    if (!TextUtils.isEmpty(note)) {
+                        Toast.makeText(requireContext(),
+                                "New request added: " + note,
+                                Toast.LENGTH_SHORT).show();
+                    }
+
                     Toast.makeText(requireContext(),
-                            "Purchase completed successfully \uD83D\uDC3C", //panda emoji
+                            "Purchase completed successfully",
                             Toast.LENGTH_LONG).show();
 
                     NavHostFragment.findNavController(BuyingTickets.this)
@@ -120,7 +128,6 @@ public class BuyingTickets extends Fragment {
                 }
             });
         });
-
 
         return view;
     }

@@ -12,7 +12,7 @@ public class AppData {
     //Djs: 1- Dj Panda, 2- Dj Timmy, 3- Dj Hippo, 4- Dj Superstar, 5- Dj Shakira
 
     static {
-        // קטגוריות: Pop, 80s, Rockstar, Techno
+
 
 // Techno (3)
         parties.add(new Party(
