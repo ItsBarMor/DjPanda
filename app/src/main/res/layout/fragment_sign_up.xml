@@ -7,6 +7,13 @@
     android:padding="30dp"
     android:gravity="center">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/app_logo" >
+
+    </ImageView>
+
     <TextView
         android:id="@+id/Sign_up_title"
         android:layout_width="wrap_content"
@@ -56,15 +63,32 @@
         android:paddingLeft="15dp"
         android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/link_to_signin"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Sign In"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="20dp"
-/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="25dp">
+
+        <TextView
+            android:id="@+id/text_signin_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textSize="14sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/link_to_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_marginStart="6dp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/sign_up_button"

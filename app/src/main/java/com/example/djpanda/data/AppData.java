@@ -198,7 +198,7 @@ public class AppData {
                         "If you’re looking for a nonstop journey through uplifting melodies and heart-pounding beats, you’re in the right place.",
                 4,
                 1,
-                new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 5.0f),
+                new Review("Avi Ron.", "The best trance set I've ever heard! The drops were insane.", 4.0f),
                 32.0853,
                 34.7818,
                 0f

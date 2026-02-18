@@ -45,18 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
-
-            <RatingBar
-                android:id="@+id/dj_rating_bar"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressTint="#F59E0B"
-                android:stepSize="0.1" />
 
             <TextView
                 android:id="@+id/dj_rating_text"
